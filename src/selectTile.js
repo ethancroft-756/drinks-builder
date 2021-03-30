@@ -7,14 +7,14 @@ class SelectTile extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { id: null };
+        this.state.selected = [];
     }
 
     render() {
         return (
-            <button liquidId={{ props.id }} className="SelectTile">
-                {props.type}
-                {props.name}
+            <button className="SelectTile">
+                {this.props.type}
+                {this.props.name}
             </button>
         );
     }

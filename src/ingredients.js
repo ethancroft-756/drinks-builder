@@ -1,13 +1,18 @@
 const ingredients = [
     {
         name: 'Vodka',
-        type: 'Base',
+        type: 'base',
         id: 1,
     },
     {
         name: 'Orange Juice',
-        type: 'Modifier',
+        type: 'modifier',
         id: 2,
+    },
+    {
+        name: 'Rum',
+        type: 'base',
+        id: 3,
     },
 ];
 

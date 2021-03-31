@@ -3,14 +3,21 @@ import ReactDOM from 'react-dom';
 import SelectTile from './select-tile';
 import ingredients from './ingredients';
 
-const DisplayIngredients = ingredients => {
+let baseIngredients = ingredients.filter(
+    ingredient => ingredient.type === 'base'
+);
+
+let modIngredients = ingredients.filter(
+    ingredient => ingredient.type === 'modifier'
+);
+
+const displayIngredients = filteredIngs => {
     return (
         <div>
-            {ingredients.map(ingredient => (
+            {filteredIngs.map(ingredient => (
                 <SelectTile
-                    name={ingredient.name}
-                    ingredienttype={ingredient.type}
-                    key={ingredient.id}
+                    ingtype={ingredient.type}
+                    ingname={ingredient.name}
                 />
             ))}
         </div>
@@ -29,12 +36,14 @@ class App extends React.Component {
                         Select your base!
                     </h2>
 
-                    {DisplayIngredients(ingredients)}
+                    {displayIngredients(baseIngredients)}
 
                     <h2>
                         <span className="stepNumber">2</span>
                         Select your modifier!
                     </h2>
+
+                    {displayIngredients(modIngredients)}
                 </div>
             </div>
         );

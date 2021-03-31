@@ -6,14 +6,15 @@ import { FaGlassCheers } from 'react-icons/fa';
 class SelectTile extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state.selected = [];
     }
 
     render() {
         return (
-            <button className="SelectTile">
-                {this.props.type}
+            <button
+                key={this.props.ingredientid}
+                ingredienttype={this.props.ingredienttype}
+                className="SelectTile"
+            >
                 {this.props.name}
             </button>
         );

@@ -4,7 +4,7 @@ import SelectTile from './SelectTile';
 import ingredients from './ingredients';
 
 class App extends React.Component {
-    state = { selectedIngs: [] };
+    state = { selectedIngredients: [] };
 
     constructor(props) {
         super(props);
@@ -16,6 +16,16 @@ class App extends React.Component {
 
     handleSelectedIngredients(id) {
         console.log(id);
+        // let selectedIngredients = this.state.selectedIngredients;
+
+        // this.setState(
+        //     {
+        //         newSelectedIngredients: [...selectedIngredients, id],
+        //     },
+        //     () => {
+        //         console.log(this.state.newSelectedIngredients);
+        //     }
+        // );
     }
 
     render() {
@@ -23,19 +33,30 @@ class App extends React.Component {
             <div>
                 <h1>Coktails</h1>
 
-                <p>{this.state.selectedIngs}</p>
+                <p>Selected ingredients: {this.state.selectedIngredients}</p>
 
                 <div>
                     <h2>
-                        <span className="stepNumber">1</span>
+                        <span className="stepNumber">1: </span>
                         Select your base!
                     </h2>
 
                     <SelectTile
-                        onClick={this.handleSelectedIngredients(
-                            this.props.ingredientId
-                        )}
-                        ingredientid="2"
+                        ingredientId="1"
+                        ingredientName="A"
+                        onClick={this.handleSelectedIngredients}
+                    />
+
+                    <SelectTile
+                        ingredientId="2"
+                        ingredientName="B"
+                        onClick={this.handleSelectedIngredients}
+                    />
+
+                    <SelectTile
+                        ingredientId="3"
+                        ingredientName="C"
+                        onClick={this.handleSelectedIngredients}
                     />
                 </div>
             </div>

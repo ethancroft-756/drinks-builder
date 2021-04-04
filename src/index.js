@@ -1,34 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectTile from './select-tile';
+import SelectTile from './SelectTile';
 import ingredients from './ingredients';
 
-let baseIngredients = ingredients.filter(
-    ingredient => ingredient.type === 'base'
-);
-
-let modIngredients = ingredients.filter(
-    ingredient => ingredient.type === 'modifier'
-);
-
-const displayIngredients = filteredIngs => {
-    return (
-        <div>
-            {filteredIngs.map(ingredient => (
-                <SelectTile
-                    ingtype={ingredient.type}
-                    ingname={ingredient.name}
-                />
-            ))}
-        </div>
-    );
-};
-
 class App extends React.Component {
+    state = { selectedIngs: [] };
+
+    constructor(props) {
+        super(props);
+
+        this.handleSelectedIngredients = this.handleSelectedIngredients.bind(
+            this
+        );
+    }
+
+    handleSelectedIngredients(id) {
+        console.log(id);
+    }
+
     render() {
         return (
             <div>
                 <h1>Coktails</h1>
+
+                <p>{this.state.selectedIngs}</p>
 
                 <div>
                     <h2>
@@ -36,14 +31,12 @@ class App extends React.Component {
                         Select your base!
                     </h2>
 
-                    {displayIngredients(baseIngredients)}
-
-                    <h2>
-                        <span className="stepNumber">2</span>
-                        Select your modifier!
-                    </h2>
-
-                    {displayIngredients(modIngredients)}
+                    <SelectTile
+                        onClick={this.handleSelectedIngredients(
+                            this.props.ingredientId
+                        )}
+                        ingredientid="2"
+                    />
                 </div>
             </div>
         );

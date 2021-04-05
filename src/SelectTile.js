@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaGlassCheers } from 'react-icons/fa';
 
 class SelectTile extends React.Component {
     constructor(props) {

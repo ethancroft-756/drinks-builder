@@ -15,12 +15,25 @@ class App extends React.Component {
     }
 
     handleSelectedIngredients(ingredientId) {
-        this.setState({
-            selectedIngredients: [
-                ...this.state.selectedIngredients,
-                ingredientId,
-            ],
-        });
+        /**
+         * Adds or removes ingredientId of clicked ingredient from selectedIngredients state depending on if it exists in the state
+         * @param {number} ingredientId - The id of clicked ingredient.
+         */
+
+        if (this.state.selectedIngredients.includes(ingredientId)) {
+            this.setState({
+                selectedIngredients: this.state.selectedIngredients.filter(
+                    val => val !== ingredientId
+                ),
+            });
+        } else {
+            this.setState({
+                selectedIngredients: [
+                    ...this.state.selectedIngredients,
+                    ingredientId,
+                ],
+            });
+        }
     }
 
     render() {

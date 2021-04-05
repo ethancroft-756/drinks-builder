@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectTile from './SelectTile';
-import ingredients from './ingredients';
+import RenderIngredients from './RenderIngredients';
 
 class App extends React.Component {
     state = { selectedIngredients: '' };
@@ -17,7 +16,7 @@ class App extends React.Component {
     handleSelectedIngredients(ingredientId) {
         /**
          * Adds or removes ingredientId of clicked ingredient from selectedIngredients state depending on if it exists in the state
-         * @param {number} ingredientId - The id of clicked ingredient.
+         * @param {number} ingredientId - The id of clicked ingredient2
          */
 
         if (this.state.selectedIngredients.includes(ingredientId)) {
@@ -49,21 +48,18 @@ class App extends React.Component {
                         Select your base!
                     </h2>
 
-                    <SelectTile
-                        ingredientId="1"
-                        ingredientName="A"
+                    <RenderIngredients
+                        type="base"
                         onClick={this.handleSelectedIngredients}
                     />
 
-                    <SelectTile
-                        ingredientId="2"
-                        ingredientName="B"
-                        onClick={this.handleSelectedIngredients}
-                    />
+                    <h2>
+                        <span className="stepNumber">2: </span>
+                        Select your modifier!
+                    </h2>
 
-                    <SelectTile
-                        ingredientId="3"
-                        ingredientName="C"
+                    <RenderIngredients
+                        type="modifier"
                         onClick={this.handleSelectedIngredients}
                     />
                 </div>

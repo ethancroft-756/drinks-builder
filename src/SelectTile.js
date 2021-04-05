@@ -2,8 +2,6 @@ import React from 'react';
 import { FaGlassCheers } from 'react-icons/fa';
 
 class SelectTile extends React.Component {
-    state = { selected: '' };
-
     constructor(props) {
         super(props);
 
@@ -11,11 +9,7 @@ class SelectTile extends React.Component {
     }
 
     onIngredientClick() {
-        this.setState({
-            selected: this.props.ingredientId,
-        });
-
-        this.props.onClick(this.state.selected);
+        this.props.onClick(this.props.ingredientId);
     }
 
     render() {

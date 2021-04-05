@@ -4,7 +4,7 @@ import SelectTile from './SelectTile';
 import ingredients from './ingredients';
 
 class App extends React.Component {
-    state = { selectedIngredients: [] };
+    state = { selectedIngredients: '' };
 
     constructor(props) {
         super(props);
@@ -14,18 +14,13 @@ class App extends React.Component {
         );
     }
 
-    handleSelectedIngredients(id) {
-        console.log(id);
-        // let selectedIngredients = this.state.selectedIngredients;
-
-        // this.setState(
-        //     {
-        //         newSelectedIngredients: [...selectedIngredients, id],
-        //     },
-        //     () => {
-        //         console.log(this.state.newSelectedIngredients);
-        //     }
-        // );
+    handleSelectedIngredients(ingredientId) {
+        this.setState({
+            selectedIngredients: [
+                ...this.state.selectedIngredients,
+                ingredientId,
+            ],
+        });
     }
 
     render() {

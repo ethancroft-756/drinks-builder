@@ -5,19 +5,24 @@ const ingredients = [
         id: 1,
     },
     {
-        name: 'Orange Juice',
+        name: 'Coffee Liquor',
         type: 'modifier',
         id: 2,
     },
     {
-        name: 'Rum',
-        type: 'base',
+        name: 'Espresso',
+        type: 'modifier',
         id: 3,
     },
     {
-        name: 'Cranberry Juice',
+        name: 'Vanilla Syrup',
         type: 'modifier',
         id: 4,
+    },
+    {
+        name: 'Lemonade',
+        type: 'mixer',
+        id: 5,
     },
 ];
 

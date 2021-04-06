@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderIngredients from './RenderIngredients';
+import Cocktails from './Cocktails';
 
 class App extends React.Component {
     state = { selectedIngredients: '' };
@@ -35,6 +36,27 @@ class App extends React.Component {
         }
     }
 
+    displayCocktails() {
+        let selectedIngs = this.state.selectedIngredients;
+
+        Cocktails.map(item => {
+            selectedIngs.every(id, index) => id ===
+        })
+    }
+
+    componentDidUpdate() {
+        console.log(
+            Cocktails.map(item => {
+                if (this.state.selectedIngredients === item.ingredientIds) {
+                    console.log('yes');
+                }
+            })
+        );
+        // Cocktails.filter(item => {
+        //     item.ingredientIds === this.state.selectedIngredients;
+        // });
+    }
+
     render() {
         return (
             <div>
@@ -62,6 +84,18 @@ class App extends React.Component {
                         type="modifier"
                         onClick={this.handleSelectedIngredients}
                     />
+
+                    <h2>
+                        <span className="stepNumber">3: </span>
+                        Select your mixer!
+                    </h2>
+
+                    <RenderIngredients
+                        type="mixer"
+                        onClick={this.handleSelectedIngredients}
+                    />
+
+                    <h2>Results:</h2>
                 </div>
             </div>
         );

@@ -12,6 +12,9 @@ class RenderIngredients extends React.Component {
         this.modifierIngredients = Ingredients.filter(
             ingredient => ingredient.type === 'modifier'
         );
+        this.mixerIngredients = Ingredients.filter(
+            ingredient => ingredient.type === 'mixer'
+        );
     }
 
     render() {
@@ -28,6 +31,17 @@ class RenderIngredients extends React.Component {
             });
         } else if (this.props.type === 'modifier') {
             return this.modifierIngredients.map(ingredient => {
+                return (
+                    <SelectTile
+                        ingredientId={ingredient.id}
+                        ingredientName={ingredient.name}
+                        onClick={this.props.onClick}
+                        key={ingredient.id}
+                    />
+                );
+            });
+        } else if (this.props.type === 'mixer') {
+            return this.mixerIngredients.map(ingredient => {
                 return (
                     <SelectTile
                         ingredientId={ingredient.id}

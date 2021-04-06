@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderIngredients from './RenderIngredients';
 import Cocktails from './Cocktails';
+import CocktailSummary from './CocktailSummary';
 
 class App extends React.Component {
     state = { selectedIngredients: '' };
@@ -12,6 +13,7 @@ class App extends React.Component {
         this.handleSelectedIngredients = this.handleSelectedIngredients.bind(
             this
         );
+        this.displayCocktails = this.displayCocktails.bind(this);
     }
 
     handleSelectedIngredients(ingredientId) {
@@ -37,24 +39,26 @@ class App extends React.Component {
     }
 
     displayCocktails() {
-        let selectedIngs = this.state.selectedIngredients;
+        // Assign id to state? Display all cocktails based on state idk?
+        let selectedIngs = this.state.selectedIngredients.sort();
 
-        Cocktails.map(item => {
-            selectedIngs.every(id, index) => id ===
-        })
+        Cocktails.map(cocktail => {
+            if (
+                cocktail.ingredientIds.every(
+                    (id, index) => id === selectedIngs[index]
+                ) === true
+            ) {
+                console.log(cocktail.name);
+                // <CocktailSummary
+                //     cocktailName={cocktail.name}
+                //     cocktailIngIds={cocktail.ingredientIds}
+                // />;
+            }
+        });
     }
 
     componentDidUpdate() {
-        console.log(
-            Cocktails.map(item => {
-                if (this.state.selectedIngredients === item.ingredientIds) {
-                    console.log('yes');
-                }
-            })
-        );
-        // Cocktails.filter(item => {
-        //     item.ingredientIds === this.state.selectedIngredients;
-        // });
+        this.displayCocktails();
     }
 
     render() {

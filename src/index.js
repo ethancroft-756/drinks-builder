@@ -5,7 +5,7 @@ import Cocktails from './Cocktails';
 import CocktailSummary from './CocktailSummary';
 
 class App extends React.Component {
-    state = { selectedIngredients: '' };
+    state = { selectedIngredients: '', matchingCocktails: [] };
 
     constructor(props) {
         super(props);
@@ -39,20 +39,16 @@ class App extends React.Component {
     }
 
     displayCocktails() {
-        // Assign id to state? Display all cocktails based on state idk?
         let selectedIngs = this.state.selectedIngredients.sort();
+        let arr = [];
 
-        Cocktails.map(cocktail => {
+        Cocktails.forEach(cocktail => {
             if (
                 cocktail.ingredientIds.every(
                     (id, index) => id === selectedIngs[index]
                 ) === true
             ) {
-                console.log(cocktail.name);
-                // <CocktailSummary
-                //     cocktailName={cocktail.name}
-                //     cocktailIngIds={cocktail.ingredientIds}
-                // />;
+                console.log(cocktail.cocktailId);
             }
         });
     }

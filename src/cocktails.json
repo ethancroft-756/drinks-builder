@@ -1,0 +1,15 @@
+{
+    "version": "0.0.1",
+    "cocktails": {
+        "0": {
+            "name": "Espresso Martini",
+            "ingredientIds": [1, 2, 3, 4],
+            "cocktailId": [1]
+        },
+        "1": {
+            "name": "Test",
+            "ingredientIds": [1, 2, 3, 4],
+            "cocktailId": [2]
+        }
+    }
+}

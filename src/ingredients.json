@@ -1,0 +1,29 @@
+{
+    "ingredients": [
+        {
+            "ingredient_name": "Vodka",
+            "ingredient_id": 1,
+            "ingredient_type": "Base"
+        },
+        {
+            "ingredient_name": "Coffee Liquor",
+            "ingredient_id": 2,
+            "ingredient_type": "Modifier"
+        },
+        {
+            "ingredient_name": "Espresso",
+            "ingredient_id": 3,
+            "ingredient_type": "Modifier"
+        },
+        {
+            "ingredient_name": "Vanilla Syrup",
+            "ingredient_id": 4,
+            "ingredient_type": "Modifier"
+        },
+        {
+            "ingredient_name": "Lemonade",
+            "ingredient_id": 5,
+            "ingredient_type": "Mixer"
+        }
+    ]
+}

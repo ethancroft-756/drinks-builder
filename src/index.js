@@ -42,15 +42,17 @@ class App extends React.Component {
         let selectedIngs = this.state.selectedIngredients.sort();
         let arr = [];
 
-        Cocktails.forEach(cocktail => {
-            if (
-                cocktail.ingredientIds.every(
-                    (id, index) => id === selectedIngs[index]
-                ) === true
-            ) {
-                console.log(cocktail.cocktailId);
-            }
-        });
+        console.log(JSON.stringify(Cocktails));
+
+        // Cocktails.forEach(cocktail => {
+        //     if (
+        //         cocktail.ingredientIds.every(
+        //             (id, index) => id === selectedIngs[index]
+        //         ) === true
+        //     ) {
+        //         console.log();
+        //     }
+        // });
     }
 
     componentDidUpdate() {

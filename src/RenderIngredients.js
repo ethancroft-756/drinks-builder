@@ -25,7 +25,7 @@ class RenderIngredients extends React.Component {
                         ingredientId={ingredient.ingredient_id}
                         ingredientName={ingredient.ingredient_name}
                         onClick={this.props.onClick}
-                        key={ingredient.id}
+                        key={ingredient.ingredient_id}
                     />
                 );
             });
@@ -36,7 +36,7 @@ class RenderIngredients extends React.Component {
                         ingredientId={ingredient.ingredient_id}
                         ingredientName={ingredient.ingredient_name}
                         onClick={this.props.onClick}
-                        key={ingredient.id}
+                        key={ingredient.ingredient_id}
                     />
                 );
             });
@@ -47,7 +47,7 @@ class RenderIngredients extends React.Component {
                         ingredientId={ingredient.ingredient_id}
                         ingredientName={ingredient.ingredient_name}
                         onClick={this.props.onClick}
-                        key={ingredient.id}
+                        key={ingredient.ingredient_id}
                     />
                 );
             });

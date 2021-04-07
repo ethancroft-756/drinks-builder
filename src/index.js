@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderIngredients from './RenderIngredients';
 import cocktails from './cocktails';
-import ingredients from './ingredients';
 
 class App extends React.Component {
     state = { selectedIngredients: '', matchingCocktails: [] };
@@ -38,25 +37,31 @@ class App extends React.Component {
         }
     }
 
-    displayCocktails() {
+    displayCocktails(prevState) {
         let selectedIngs = this.state.selectedIngredients.sort();
-        let arr = [];
 
-        console.log(JSON.stringify(cocktails));
-
-        // Cocktails.forEach(cocktail => {
-        //     if (
-        //         cocktail.ingredientIds.every(
-        //             (id, index) => id === selectedIngs[index]
-        //         ) === true
-        //     ) {
-        //         console.log();
-        //     }
-        // });
+        cocktails.cocktails.forEach(cocktail => {
+            if (
+                cocktail.cocktail_ingredient_ids.every(
+                    (id, index) => id === selectedIngs[index]
+                ) === true
+            ) {
+                this.setState({
+                    matchingCocktails: [
+                        ...this.state.matchingCocktails,
+                        `id: ${cocktail.cocktail_id}`,
+                    ],
+                });
+            }
+        });
     }
 
-    componentDidUpdate() {
-        this.displayCocktails();
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.selectedIngredients !== this.state.selectedIngredients) {
+            this.displayCocktails(prevState);
+        }
+
+        console.log(this.state.matchingCocktails);
     }
 
     render() {

@@ -4,7 +4,7 @@ import RenderIngredients from './RenderIngredients';
 import cocktails from './cocktails';
 
 class App extends React.Component {
-    state = { selectedIngredients: '', matchingCocktails: [] };
+    state = { selectedIngredients: '', matchingCocktails: {} };
 
     constructor(props) {
         super(props);
@@ -46,12 +46,9 @@ class App extends React.Component {
                     (id, index) => id === selectedIngs[index]
                 ) === true
             ) {
-                this.setState({
-                    matchingCocktails: [
-                        ...this.state.matchingCocktails,
-                        `id: ${cocktail.cocktail_id}`,
-                    ],
-                });
+                this.setState(prevState => ({
+                    matchingCocktails: prevState + 'hi',
+                }));
             }
         });
     }
@@ -60,8 +57,6 @@ class App extends React.Component {
         if (prevState.selectedIngredients !== this.state.selectedIngredients) {
             this.displayCocktails(prevState);
         }
-
-        console.log(this.state.matchingCocktails);
     }
 
     render() {

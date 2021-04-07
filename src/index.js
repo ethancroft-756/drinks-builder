@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderIngredients from './RenderIngredients';
-import Cocktails from './Cocktails';
-import CocktailSummary from './CocktailSummary';
+import cocktails from './cocktails';
+import ingredients from './ingredients';
 
 class App extends React.Component {
     state = { selectedIngredients: '', matchingCocktails: [] };
@@ -19,7 +19,7 @@ class App extends React.Component {
     handleSelectedIngredients(ingredientId) {
         /**
          * Adds or removes ingredientId of clicked ingredient from selectedIngredients state depending on if it exists in the state
-         * @param {number} ingredientId - The id of clicked ingredient2
+         * @param {number} ingredientId - The id of clicked ingredient
          */
 
         if (this.state.selectedIngredients.includes(ingredientId)) {
@@ -42,7 +42,7 @@ class App extends React.Component {
         let selectedIngs = this.state.selectedIngredients.sort();
         let arr = [];
 
-        console.log(JSON.stringify(Cocktails));
+        console.log(JSON.stringify(cocktails));
 
         // Cocktails.forEach(cocktail => {
         //     if (
@@ -73,7 +73,7 @@ class App extends React.Component {
                     </h2>
 
                     <RenderIngredients
-                        type="base"
+                        type="Base"
                         onClick={this.handleSelectedIngredients}
                     />
 
@@ -83,7 +83,7 @@ class App extends React.Component {
                     </h2>
 
                     <RenderIngredients
-                        type="modifier"
+                        type="Modifier"
                         onClick={this.handleSelectedIngredients}
                     />
 
@@ -93,7 +93,7 @@ class App extends React.Component {
                     </h2>
 
                     <RenderIngredients
-                        type="mixer"
+                        type="Mixer"
                         onClick={this.handleSelectedIngredients}
                     />
 

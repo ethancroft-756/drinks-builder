@@ -4,7 +4,7 @@ import RenderIngredients from './RenderIngredients';
 import cocktails from './cocktails';
 
 class App extends React.Component {
-    state = { selectedIngredients: '', matchingCocktails: {} };
+    state = { selectedIngredients: '', matchingCocktails: [] };
 
     constructor(props) {
         super(props);
@@ -37,7 +37,7 @@ class App extends React.Component {
         }
     }
 
-    displayCocktails(prevState) {
+    displayCocktails() {
         let selectedIngs = this.state.selectedIngredients.sort();
 
         cocktails.cocktails.forEach(cocktail => {
@@ -47,7 +47,10 @@ class App extends React.Component {
                 ) === true
             ) {
                 this.setState(prevState => ({
-                    matchingCocktails: prevState + 'hi',
+                    matchingCocktails: [
+                        ...prevState.matchingCocktails,
+                        ' ' + cocktail.cocktail_name,
+                    ],
                 }));
             }
         });
@@ -55,7 +58,7 @@ class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.selectedIngredients !== this.state.selectedIngredients) {
-            this.displayCocktails(prevState);
+            this.displayCocktails();
         }
     }
 
@@ -98,6 +101,8 @@ class App extends React.Component {
                     />
 
                     <h2>Results:</h2>
+
+                    {this.state.matchingCocktails}
                 </div>
             </div>
         );

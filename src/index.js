@@ -53,6 +53,13 @@ class App extends React.Component {
                         cocktail.cocktail_name,
                     ],
                 }));
+            } else {
+                this.setState(prevState => ({
+                    matchingCocktails: prevState.matchingCocktails.filter(
+                        matchingCocktail =>
+                            matchingCocktail !== cocktail.cocktail_name
+                    ),
+                }));
             }
         });
     }

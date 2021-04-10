@@ -5,7 +5,11 @@ class CocktailShort extends React.Component {
     render() {
         return cocktails.cocktails.map(cocktail => {
             if (cocktail.cocktail_id === this.props.cocktailId) {
-                return <div>Name: {cocktail.cocktail_name}</div>;
+                return (
+                    <div key={cocktail.cocktail_id}>
+                        Name: {cocktail.cocktail_name}
+                    </div>
+                );
             }
         });
     }

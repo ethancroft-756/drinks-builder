@@ -1,5 +1,5 @@
 import React from 'react';
-import ingredients from './ingredients';
+import ingredients from '../data/ingredients';
 import SelectTile from './SelectTile';
 
 class RenderIngredients extends React.Component {

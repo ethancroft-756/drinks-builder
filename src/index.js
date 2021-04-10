@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RenderIngredients from './RenderIngredients';
-import RenderCocktails from './RenderCocktails';
-import cocktails from './cocktails';
+import RenderIngredients from './components/RenderIngredients';
+import RenderCocktails from './components/RenderCocktails';
+import cocktails from './data/cocktails';
 
 class App extends React.Component {
     state = { selectedIngredients: '', matchingCocktails: [] };

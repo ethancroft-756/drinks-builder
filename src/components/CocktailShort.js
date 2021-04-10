@@ -1,5 +1,5 @@
 import React from 'react';
-import cocktails from './cocktails';
+import cocktails from '../data/cocktails';
 
 class CocktailShort extends React.Component {
     render() {

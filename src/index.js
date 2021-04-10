@@ -48,28 +48,16 @@ class App extends React.Component {
                 ) === true
             ) {
                 if (
-                    cocktail.cocktail_ingredient_ids.length ===
-                    selectedIngs.length
+                    prevState.matchingCocktails.includes(
+                        cocktail.cocktail_id
+                    ) === false
                 ) {
-                    if (
-                        prevState.matchingCocktails.includes(
-                            cocktail.cocktail_id
-                        ) === false
-                    ) {
-                        this.setState(prevState => ({
-                            matchingCocktails: [
-                                ...prevState.matchingCocktails,
-                                cocktail.cocktail_id,
-                            ],
-                        }));
-                    } else {
-                        this.setState(prevState => ({
-                            matchingCocktails: prevState.matchingCocktails.filter(
-                                matchingCocktail =>
-                                    matchingCocktail !== cocktail.cocktail_id
-                            ),
-                        }));
-                    }
+                    this.setState(prevState => ({
+                        matchingCocktails: [
+                            ...prevState.matchingCocktails,
+                            cocktail.cocktail_id,
+                        ],
+                    }));
                 }
             } else if (
                 prevState.matchingCocktails.includes(cocktail.cocktail_id) ===

@@ -19,7 +19,9 @@ class RenderCocktails extends React.Component {
                             (cocktail_id, index) => {
                                 return (
                                     <li key={index}>
-                                        <CocktailShort name={cocktail_id} />
+                                        <CocktailShort
+                                            cocktailId={cocktail_id}
+                                        />
                                     </li>
                                 );
                             }

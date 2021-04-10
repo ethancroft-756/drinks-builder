@@ -15,13 +15,15 @@ class RenderCocktails extends React.Component {
                     <p>Results:</p>
 
                     <ul>
-                        {this.props.matchedCocktails.map((cocktail, index) => {
-                            return (
-                                <li key={index}>
-                                    <CocktailShort name={cocktail} />
-                                </li>
-                            );
-                        })}
+                        {this.props.matchedCocktails.map(
+                            (cocktail_id, index) => {
+                                return (
+                                    <li key={index}>
+                                        <CocktailShort name={cocktail_id} />
+                                    </li>
+                                );
+                            }
+                        )}
                     </ul>
                 </div>
             );

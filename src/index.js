@@ -38,7 +38,7 @@ class App extends React.Component {
         }
     }
 
-    getCocktails() {
+    getCocktails(prevState) {
         let selectedIngs = this.state.selectedIngredients.sort();
 
         cocktails.cocktails.forEach(cocktail => {
@@ -47,17 +47,38 @@ class App extends React.Component {
                     (id, index) => id === selectedIngs[index]
                 ) === true
             ) {
-                this.setState(prevState => ({
-                    matchingCocktails: [
-                        ...prevState.matchingCocktails,
-                        cocktail.cocktail_name,
-                    ],
-                }));
-            } else {
+                if (
+                    cocktail.cocktail_ingredient_ids.length ===
+                    selectedIngs.length
+                ) {
+                    if (
+                        prevState.matchingCocktails.includes(
+                            cocktail.cocktail_id
+                        ) === false
+                    ) {
+                        this.setState(prevState => ({
+                            matchingCocktails: [
+                                ...prevState.matchingCocktails,
+                                cocktail.cocktail_id,
+                            ],
+                        }));
+                    } else {
+                        this.setState(prevState => ({
+                            matchingCocktails: prevState.matchingCocktails.filter(
+                                matchingCocktail =>
+                                    matchingCocktail !== cocktail.cocktail_id
+                            ),
+                        }));
+                    }
+                }
+            } else if (
+                prevState.matchingCocktails.includes(cocktail.cocktail_id) ===
+                true
+            ) {
                 this.setState(prevState => ({
                     matchingCocktails: prevState.matchingCocktails.filter(
                         matchingCocktail =>
-                            matchingCocktail !== cocktail.cocktail_name
+                            matchingCocktail !== cocktail.cocktail_id
                     ),
                 }));
             }
@@ -66,7 +87,7 @@ class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.selectedIngredients !== this.state.selectedIngredients) {
-            this.getCocktails();
+            this.getCocktails(prevState);
         }
     }
 

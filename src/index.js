@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import RenderIngredients from './components/RenderIngredients';
 import RenderCocktails from './components/RenderCocktails';
 import cocktails from './data/cocktails';
+import sanityClient from './client';
 
 class App extends React.Component {
     state = { selectedIngredients: '', matchingCocktails: [] };
@@ -14,6 +15,18 @@ class App extends React.Component {
             this
         );
         this.getCocktails = this.getCocktails.bind(this);
+        this.test = this.test.bind(this);
+    }
+
+    test() {
+        sanityClient
+            .fetch(`*[_type == 'movie']`)
+            .then(data =>
+                data.forEach(item => {
+                    console.log(item.title);
+                })
+            )
+            .catch(console.error);
     }
 
     handleSelectedIngredients(ingredientId) {
@@ -77,7 +90,11 @@ class App extends React.Component {
         if (prevState.selectedIngredients !== this.state.selectedIngredients) {
             this.getCocktails(prevState);
         }
+
+        this.test();
     }
+
+    componentDidMount() {}
 
     render() {
         return (

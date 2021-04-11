@@ -5,13 +5,13 @@ class CocktailModal extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { modalActive: false };
+        this.state = { isActive: this.props.isActive };
     }
 
-    handleClicks() {}
-
     componentDidMount() {
-        this.modal = document.querySelector('.modal');
+        this.modal = document.querySelector(
+            `[cocktail-id="${this.props.cocktailId}"]`
+        );
     }
 
     componentDidUpdate() {
@@ -22,10 +22,12 @@ class CocktailModal extends React.Component {
 
     render() {
         return (
-            <div className="modal">
-                Modal
+            <div cocktail-id={this.props.cocktailId} className="modal">
+                <p>Name: {this.props.cocktailName}</p>
+                <p>Cocktail ID: {this.props.cocktailId}</p>
+
                 <span>
-                    <FaTimes />
+                    <FaTimes onClick={this.props.closeModal} />
                 </span>
             </div>
         );

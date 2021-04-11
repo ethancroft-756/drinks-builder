@@ -7,7 +7,6 @@ class CocktailShort extends React.Component {
         super(props);
 
         this.state = { modalActive: false };
-
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -22,8 +21,6 @@ class CocktailShort extends React.Component {
     }
 
     render() {
-        // console.log(this.modal);
-
         return cocktails.cocktails.map(cocktail => {
             if (cocktail.cocktail_id === this.props.cocktailId) {
                 return (
@@ -32,7 +29,12 @@ class CocktailShort extends React.Component {
                             {cocktail.cocktail_name}
                         </button>
 
-                        <CocktailModal isActive={this.state.modalActive} />
+                        <CocktailModal
+                            isActive={this.state.modalActive}
+                            closeModal={this.handleClick}
+                            cocktailName={cocktail.cocktail_name}
+                            cocktailId={cocktail.cocktail_id}
+                        />
                     </div>
                 );
             }

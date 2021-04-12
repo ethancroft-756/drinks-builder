@@ -98,7 +98,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="content">
                 <h1>Coktails</h1>
 
                 <p>Selected ingredients: {this.state.selectedIngredients}</p>

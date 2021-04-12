@@ -1,8 +1,9 @@
 /* Variables */
 
-$green: #43c6ac;
-$yellow: #ffd16f;
+$space: 10px;
+$green: rgb(67, 198, 172);
+$yellow: rgb(255, 209, 111);
 
 @import './body';
+@import './content';
 @import './modal';
-

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import RenderIngredients from './components/RenderIngredients';
 import RenderCocktails from './components/RenderCocktails';
 import cocktails from './data/cocktails';
-import sanityClient from './client';
+// import sanityClient from './client';
 
 class App extends React.Component {
     state = { selectedIngredients: '', matchingCocktails: [] };
@@ -19,14 +19,14 @@ class App extends React.Component {
     }
 
     test() {
-        sanityClient
-            .fetch(`*[_type == 'movie']`)
-            .then(data =>
-                data.forEach(item => {
-                    console.log(item.title);
-                })
-            )
-            .catch(console.error);
+        // sanityClient
+        //     .fetch(`*[_type == 'movie']`)
+        //     .then(data =>
+        //         data.forEach(item => {
+        //             console.log(item.title);
+        //         })
+        //     )
+        //     .catch(console.error);
     }
 
     handleSelectedIngredients(ingredientId) {
@@ -98,12 +98,12 @@ class App extends React.Component {
 
     render() {
         return (
-            <div class="content">
+            <div className="content">
                 <h1>Coktails</h1>
 
                 <p>Selected ingredients: {this.state.selectedIngredients}</p>
 
-                <div>
+                <div className="content content--light">
                     <h2>
                         <span className="stepNumber">1: </span>
                         Select your base!

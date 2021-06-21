@@ -84,7 +84,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="content">
-                <h1>Coktails</h1>
+                <h1>Cocktails</h1>
 
                 <p>Selected ingredients: {this.state.selectedIngredients}</p>
 
@@ -94,30 +94,39 @@ class App extends React.Component {
                         Select your base!
                     </h2>
 
-                    <RenderIngredients
-                        type="Base"
-                        onClick={this.handleSelectedIngredients}
-                    />
+                    <div className="ingredients">
+                        <RenderIngredients
+                            type="Base"
+                            onClick={this.handleSelectedIngredients}
+                            className="ingredients__item"
+                        />
+                    </div>
 
                     <h2>
                         <span className="stepNumber">2: </span>
                         Select your modifier!
                     </h2>
 
-                    <RenderIngredients
-                        type="Modifier"
-                        onClick={this.handleSelectedIngredients}
-                    />
+                    <div className="ingredients">
+                        <RenderIngredients
+                            type="Modifier"
+                            onClick={this.handleSelectedIngredients}
+                            className="ingredients__item"
+                        />
+                    </div>
 
                     <h2>
                         <span className="stepNumber">3: </span>
                         Select your mixer!
                     </h2>
 
-                    <RenderIngredients
-                        type="Mixer"
-                        onClick={this.handleSelectedIngredients}
-                    />
+                    <div className="ingredients">
+                        <RenderIngredients
+                            type="Mixer"
+                            onClick={this.handleSelectedIngredients}
+                            className="ingredients__item"
+                        />
+                    </div>
 
                     <RenderCocktails
                         matchedCocktails={this.state.matchingCocktails}

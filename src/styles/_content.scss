@@ -13,7 +13,42 @@
     padding: $space * 4;
 
     &--light {
+        margin: 0;
+        padding: $space * 1.5;
+    }
+}
+
+.ingredients {
+    display: flex;
+
+    &__item {
+        background: #fff;
+        box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07),
+        0 32px 64px rgba(0, 0, 0, 0.07);
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        min-height: 100px;
         padding: $space;
-        margin-top: -140px;
+        font-size: 1.2rem;
+        font-weight: 400;
+        font-family: $font;
+        letter-spacing: 1px;
+        min-width: 150px;
+        opacity: .8;
+        margin-right: $space;
+        margin-bottom: $space;
+
+        /* Look at making the background lighter when you scroll around */
+
+        &:hover {
+            background: #ffd16f;
+            transition: ease-out 0.3s background;
+        }
     }
 }

@@ -16,6 +16,7 @@ class SelectTile extends React.Component {
             <button
                 onClick={this.onIngredientClick}
                 ingredient-id={this.props.ingredientId}
+                className={this.props.className}
             >
                 {this.props.ingredientName}
             </button>

@@ -20,6 +20,7 @@
 
 .ingredients {
     display: flex;
+    flex-wrap: wrap;
 
     &__item {
         background: #fff;
@@ -40,15 +41,9 @@
         font-family: $font;
         letter-spacing: 1px;
         min-width: 150px;
-        opacity: .8;
+        opacity: 1;
         margin-right: $space;
         margin-bottom: $space;
-
-        /* Look at making the background lighter when you scroll around */
-
-        &:hover {
-            background: radial-gradient(ellipse at 30% 30%, #ffda8b 20%, #f7b831 100%);
-            transition: ease-out 0.3s background;
-        }
+        transition: all 4s linear;
     }
 }

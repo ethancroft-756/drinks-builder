@@ -1,140 +1,144 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import RenderIngredients from './components/RenderIngredients';
-import RenderCocktails from './components/RenderCocktails';
-import cocktails from './data/cocktails';
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import RenderIngredients from "./components/RenderIngredients";
+import RenderCocktails from "./components/RenderCocktails";
+import cocktails from "./data/cocktails";
+import ingredients from "./data/ingredients";
 
-class App extends React.Component {
-    state = { selectedIngredients: '', matchingCocktails: [] };
+const App = () => {
+    const [baseIngredients, setBaseIngredients] = useState([]);
+    const [modifierIngredients, setModifierIngredients] = useState([]);
+    const [mixerIngredients, setMixerIngredients] = useState([]);
 
-    constructor(props) {
-        super(props);
+    const [selectedIngredients, setSelectedIngredients] = useState([]);
+    const [matchingCocktails, setMatchingCocktails] = useState([]);
 
-        this.handleSelectedIngredients = this.handleSelectedIngredients.bind(
-            this
+    useEffect(() => {
+        setBaseIngredients(
+            ingredients.ingredients.filter(
+                (ingredient) => ingredient.ingredient_type === "base"
+            )
         );
-        this.getCocktails = this.getCocktails.bind(this);
-    }
+        setModifierIngredients(
+            ingredients.ingredients.filter(
+                (ingredient) => ingredient.ingredient_type === "modifier"
+            )
+        );
+        setMixerIngredients(
+            ingredients.ingredients.filter(
+                (ingredient) => ingredient.ingredient_type === "mixer"
+            )
+        );
+    }, [ingredients]);
 
-    handleSelectedIngredients(ingredientId) {
-        /**
-         * Adds or removes ingredientId of clicked ingredient from selectedIngredients state depending on if it exists in the state
-         * @param {number} ingredientId - The id of clicked ingredient
-         */
-
-        if (this.state.selectedIngredients.includes(ingredientId)) {
-            this.setState({
-                selectedIngredients: this.state.selectedIngredients.filter(
-                    val => val !== ingredientId
-                ),
+    const handleSelectedIngredients = (ingredientId) => {
+        if (selectedIngredients.includes(ingredientId)) {
+            setSelectedIngredients((prevState) => {
+                return prevState.filter((val) => val !== ingredientId);
             });
         } else {
-            this.setState({
-                selectedIngredients: [
-                    ...this.state.selectedIngredients,
-                    ingredientId,
-                ],
+            setSelectedIngredients((prevState) => {
+                return [...prevState, ingredientId];
             });
         }
-    }
+    };
 
-    getCocktails(prevState) {
-        let selectedIngs = this.state.selectedIngredients.sort();
+    const getCocktails = () => {
+        let selectedIngs = selectedIngredients.sort();
 
-        cocktails.cocktails.forEach(cocktail => {
+        cocktails.cocktails.forEach((cocktail) => {
             if (
                 cocktail.cocktail_ingredient_ids.every(
                     (id, index) => id === selectedIngs[index]
                 ) === true
             ) {
                 if (
-                    prevState.matchingCocktails.includes(
-                        cocktail.cocktail_id
-                    ) === false
+                    matchingCocktails.includes(cocktail.cocktail_id) === false
                 ) {
-                    this.setState(prevState => ({
-                        matchingCocktails: [
-                            ...prevState.matchingCocktails,
-                            cocktail.cocktail_id,
-                        ],
-                    }));
+                    setMatchingCocktails((prevState) => {
+                        console.log(prevState);
+                        // return [...prevState, cocktail.cocktail_id];
+                    });
+                } else if (
+                    matchingCocktails.includes(cocktail.cocktail_id) === true
+                ) {
+                    setMatchingCocktails((prevState) => {
+                        console.log(prevState);
+
+                        // return prevState.filter(
+                        //     (matchingCocktail) =>
+                        //         matchingCocktail !== cocktail.cocktail_id
+                        // );
+                    });
                 }
-            } else if (
-                prevState.matchingCocktails.includes(cocktail.cocktail_id) ===
-                true
-            ) {
-                this.setState(prevState => ({
-                    matchingCocktails: prevState.matchingCocktails.filter(
-                        matchingCocktail =>
-                            matchingCocktail !== cocktail.cocktail_id
-                    ),
-                }));
             }
         });
-    }
+    };
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.selectedIngredients !== this.state.selectedIngredients) {
-            this.getCocktails(prevState);
-        }
-    }
+    useEffect(() => {
+        getCocktails();
+    }, [selectedIngredients]);
 
-    componentDidMount() {}
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.selectedIngredients !== this.state.selectedIngredients) {
+    //         this.getCocktails(prevState);
+    //     }
+    // }
 
-    render() {
-        return (
-            <div className="content">
-                <h1>Cocktails</h1>
+    return (
+        <div className="content">
+            <h1>Cocktails</h1>
 
-                <p>Selected ingredients: {this.state.selectedIngredients}</p>
+            {selectedIngredients && (
+                <p>Selected ingredients: {selectedIngredients}</p>
+            )}
 
-                <div className="content content--light">
-                    <h2>
-                        <span className="stepNumber">1: </span>
-                        Select your base!
-                    </h2>
+            <div className="content content--light">
+                <h2>
+                    <span className="stepNumber">1: </span>
+                    Select your base!
+                </h2>
 
-                    <div className="ingredients">
-                        <RenderIngredients
-                            type="Base"
-                            onClick={this.handleSelectedIngredients}
-                            className="ingredients__item"
-                        />
-                    </div>
-
-                    <h2>
-                        <span className="stepNumber">2: </span>
-                        Select your modifier!
-                    </h2>
-
-                    <div className="ingredients">
-                        <RenderIngredients
-                            type="Modifier"
-                            onClick={this.handleSelectedIngredients}
-                            className="ingredients__item"
-                        />
-                    </div>
-
-                    <h2>
-                        <span className="stepNumber">3: </span>
-                        Select your mixer!
-                    </h2>
-
-                    <div className="ingredients">
-                        <RenderIngredients
-                            type="Mixer"
-                            onClick={this.handleSelectedIngredients}
-                            className="ingredients__item"
-                        />
-                    </div>
-
-                    <RenderCocktails
-                        matchedCocktails={this.state.matchingCocktails}
+                <div className="ingredients">
+                    <RenderIngredients
+                        ingredients={baseIngredients}
+                        onClick={handleSelectedIngredients}
+                        className="ingredients__item"
                     />
                 </div>
-            </div>
-        );
-    }
-}
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+                <h2>
+                    <span className="stepNumber">2: </span>
+                    Select your modifier!
+                </h2>
+
+                <div className="ingredients">
+                    <RenderIngredients
+                        ingredients={modifierIngredients}
+                        onClick={handleSelectedIngredients}
+                        className="ingredients__item"
+                    />
+                </div>
+
+                <h2>
+                    <span className="stepNumber">3: </span>
+                    Select your mixer!
+                </h2>
+
+                <div className="ingredients">
+                    <RenderIngredients
+                        ingredients={mixerIngredients}
+                        onClick={handleSelectedIngredients}
+                        className="ingredients__item"
+                    />
+                </div>
+                {/*
+                    <RenderCocktails
+                        matchedCocktails={matchingCocktails}
+                    /> */}
+            </div>
+        </div>
+    );
+};
+
+ReactDOM.render(<App />, document.querySelector("#root"));

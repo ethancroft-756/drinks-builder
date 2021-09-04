@@ -3,27 +3,27 @@
         {
             "ingredient_name": "Vanilla Vodka",
             "ingredient_id": 1,
-            "ingredient_type": "Base"
+            "ingredient_type": "base"
         },
         {
             "ingredient_name": "Passionfruit Liquor",
             "ingredient_id": 2,
-            "ingredient_type": "Modifier"
+            "ingredient_type": "modifier"
         },
         {
             "ingredient_name": "Passionfruit Juice",
             "ingredient_id": 3,
-            "ingredient_type": "Modifier"
+            "ingredient_type": "modifier"
         },
         {
             "ingredient_name": "Prosecco",
             "ingredient_id": 4,
-            "ingredient_type": "Modifier"
+            "ingredient_type": "modifier"
         },
         {
             "ingredient_name": "Lime Juice",
             "ingredient_id": 5,
-            "ingredient_type": "Mixer"
+            "ingredient_type": "mixer"
         }
     ]
 }

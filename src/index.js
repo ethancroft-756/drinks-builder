@@ -4,6 +4,7 @@ import RenderIngredients from "./components/RenderIngredients";
 import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
+import SelectedIngredientsList from "./components/SelectedIngredientsList";
 
 const App = () => {
     const [baseIngredients, setBaseIngredients] = useState([]);
@@ -31,25 +32,49 @@ const App = () => {
     }, []);
 
     const handleSelectedIngredients = (ingredientId) => {
-        if (selectedIngredients.includes(ingredientId)) {
+        const ingredientIndex = ingredients.ingredients.findIndex(
+            (ingredient) => ingredient.ingredient_id === ingredientId
+        );
+        const ingredient = ingredients.ingredients[ingredientIndex];
+
+        if (
+            !selectedIngredients.find(
+                (ingredient) => ingredient.ingredient_id === ingredientId
+            )
+        ) {
             setSelectedIngredients((prevState) => {
-                return prevState.filter((val) => val !== ingredientId);
+                return [...prevState, ingredient];
             });
         } else {
             setSelectedIngredients((prevState) => {
-                return [...prevState, ingredientId];
+                const prevSelectedIngredientIndex = prevState.findIndex(
+                    (ingredient) => ingredient.ingredient_id === ingredientId
+                );
+
+                const updatedIngredients = prevState.filter(
+                    (item, index) => index !== prevSelectedIngredientIndex
+                );
+
+                return updatedIngredients;
             });
         }
     };
 
     useEffect(() => {
-        let selectedIngs = selectedIngredients.sort();
-        let matchedCocktails = [];
+        const ingredientIds = [];
+        const matchedCocktails = [];
+
+        selectedIngredients.forEach((ingredient) => {
+            ingredientIds.push(ingredient.ingredient_id);
+        });
+
+        ingredientIds.sort();
 
         cocktails.cocktails.forEach((cocktail) => {
-            cocktail.cocktail_ingredient_ids.every(
-                (id, index) => id === selectedIngs[index]
-            ) && matchedCocktails.push(cocktail.cocktail_id);
+            cocktail.cocktail_ingredient_ids
+                .sort()
+                .every((id, index) => id === ingredientIds[index]) &&
+                matchedCocktails.push(cocktail);
         });
 
         setMatchingCocktails(matchedCocktails);
@@ -59,11 +84,7 @@ const App = () => {
         <div className="content">
             <h1>Cocktails</h1>
 
-            {selectedIngredients && (
-                <p>Selected ingredients: {selectedIngredients}</p>
-            )}
-
-            <div className="content content--light">
+            <div className="col-1">
                 <h2>
                     <span className="stepNumber">1: </span>
                     Select your base!
@@ -102,9 +123,16 @@ const App = () => {
                         className="ingredients__item"
                     />
                 </div>
-
-                <RenderCocktails matchedCocktails={matchingCocktails} />
             </div>
+
+            <div className="col-2">
+                Selected ingredients:
+                <SelectedIngredientsList
+                    ingredients={selectedIngredients}
+                ></SelectedIngredientsList>
+            </div>
+
+            <RenderCocktails matchedCocktails={matchingCocktails} />
         </div>
     );
 };

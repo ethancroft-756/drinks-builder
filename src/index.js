@@ -9,7 +9,6 @@ const App = () => {
     const [baseIngredients, setBaseIngredients] = useState([]);
     const [modifierIngredients, setModifierIngredients] = useState([]);
     const [mixerIngredients, setMixerIngredients] = useState([]);
-
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
@@ -29,7 +28,7 @@ const App = () => {
                 (ingredient) => ingredient.ingredient_type === "mixer"
             )
         );
-    }, [ingredients]);
+    }, []);
 
     const handleSelectedIngredients = (ingredientId) => {
         if (selectedIngredients.includes(ingredientId)) {
@@ -43,47 +42,18 @@ const App = () => {
         }
     };
 
-    const getCocktails = () => {
+    useEffect(() => {
         let selectedIngs = selectedIngredients.sort();
+        let matchedCocktails = [];
 
         cocktails.cocktails.forEach((cocktail) => {
-            if (
-                cocktail.cocktail_ingredient_ids.every(
-                    (id, index) => id === selectedIngs[index]
-                ) === true
-            ) {
-                if (
-                    matchingCocktails.includes(cocktail.cocktail_id) === false
-                ) {
-                    setMatchingCocktails((prevState) => {
-                        console.log(prevState);
-                        // return [...prevState, cocktail.cocktail_id];
-                    });
-                } else if (
-                    matchingCocktails.includes(cocktail.cocktail_id) === true
-                ) {
-                    setMatchingCocktails((prevState) => {
-                        console.log(prevState);
-
-                        // return prevState.filter(
-                        //     (matchingCocktail) =>
-                        //         matchingCocktail !== cocktail.cocktail_id
-                        // );
-                    });
-                }
-            }
+            cocktail.cocktail_ingredient_ids.every(
+                (id, index) => id === selectedIngs[index]
+            ) && matchedCocktails.push(cocktail.cocktail_id);
         });
-    };
 
-    useEffect(() => {
-        getCocktails();
+        setMatchingCocktails(matchedCocktails);
     }, [selectedIngredients]);
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.selectedIngredients !== this.state.selectedIngredients) {
-    //         this.getCocktails(prevState);
-    //     }
-    // }
 
     return (
         <div className="content">
@@ -132,10 +102,8 @@ const App = () => {
                         className="ingredients__item"
                     />
                 </div>
-                {/*
-                    <RenderCocktails
-                        matchedCocktails={matchingCocktails}
-                    /> */}
+
+                <RenderCocktails matchedCocktails={matchingCocktails} />
             </div>
         </div>
     );

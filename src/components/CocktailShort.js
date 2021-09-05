@@ -1,6 +1,6 @@
-import React from 'react';
-import cocktails from '../data/cocktails';
-import CocktailModal from './CocktailModal';
+import React from "react";
+import cocktails from "../data/cocktails";
+import CocktailModal from "./CocktailModal";
 
 class CocktailShort extends React.Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class CocktailShort extends React.Component {
     }
 
     render() {
-        return cocktails.cocktails.map(cocktail => {
+        return cocktails.cocktails.map((cocktail) => {
             if (cocktail.cocktail_id === this.props.cocktailId) {
                 return (
                     <div key={cocktail.cocktail_id}>
@@ -34,6 +34,7 @@ class CocktailShort extends React.Component {
                             closeModal={this.handleClick}
                             cocktailName={cocktail.cocktail_name}
                             cocktailId={cocktail.cocktail_id}
+                            key={cocktail.cocktail_id}
                         />
                     </div>
                 );

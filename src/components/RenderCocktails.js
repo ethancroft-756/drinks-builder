@@ -1,11 +1,7 @@
-import React from 'react';
-import CocktailShort from './CocktailShort';
+import React from "react";
+import CocktailShort from "./CocktailShort";
 
 class RenderCocktails extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (this.props.matchedCocktails.length === 0) {
             return null;

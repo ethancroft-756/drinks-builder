@@ -7,7 +7,7 @@
         },
         {
             "cocktail_name": "Test",
-            "cocktail_id": 2,
+            "cocktail_id": 3,
             "cocktail_ingredient_ids": [1, 2, 3, 4, 5]
         }
     ]

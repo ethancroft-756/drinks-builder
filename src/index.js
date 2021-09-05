@@ -5,31 +5,13 @@ import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
 import SelectedIngredientsList from "./components/SelectedIngredientsList";
+import Input from "./components/Input";
+import SearchForm from "./components/SearchForm";
 
 const App = () => {
-    const [baseIngredients, setBaseIngredients] = useState([]);
-    const [modifierIngredients, setModifierIngredients] = useState([]);
-    const [mixerIngredients, setMixerIngredients] = useState([]);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [matchingCocktails, setMatchingCocktails] = useState([]);
-
-    useEffect(() => {
-        setBaseIngredients(
-            ingredients.ingredients.filter(
-                (ingredient) => ingredient.ingredient_type === "base"
-            )
-        );
-        setModifierIngredients(
-            ingredients.ingredients.filter(
-                (ingredient) => ingredient.ingredient_type === "modifier"
-            )
-        );
-        setMixerIngredients(
-            ingredients.ingredients.filter(
-                (ingredient) => ingredient.ingredient_type === "mixer"
-            )
-        );
-    }, []);
+    const [] = useState();
 
     const handleSelectedIngredients = (ingredientId) => {
         const ingredientIndex = ingredients.ingredients.findIndex(
@@ -84,46 +66,13 @@ const App = () => {
         <div className="content">
             <h1>Cocktails</h1>
 
-            <div className="col-1">
-                <h2>
-                    <span className="stepNumber">1: </span>
-                    Select your base!
-                </h2>
+            <SearchForm ingredients={ingredients}></SearchForm>
 
-                <div className="ingredients">
-                    <RenderIngredients
-                        ingredients={baseIngredients}
-                        onClick={handleSelectedIngredients}
-                        className="ingredients__item"
-                    />
-                </div>
-
-                <h2>
-                    <span className="stepNumber">2: </span>
-                    Select your modifier!
-                </h2>
-
-                <div className="ingredients">
-                    <RenderIngredients
-                        ingredients={modifierIngredients}
-                        onClick={handleSelectedIngredients}
-                        className="ingredients__item"
-                    />
-                </div>
-
-                <h2>
-                    <span className="stepNumber">3: </span>
-                    Select your mixer!
-                </h2>
-
-                <div className="ingredients">
-                    <RenderIngredients
-                        ingredients={mixerIngredients}
-                        onClick={handleSelectedIngredients}
-                        className="ingredients__item"
-                    />
-                </div>
-            </div>
+            {/* <RenderIngredients
+                ingredients={mixerIngredients}
+                onClick={handleSelectedIngredients}
+                className="ingredients__item"
+                /> */}
 
             <div className="col-2">
                 Selected ingredients:

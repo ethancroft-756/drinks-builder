@@ -11,18 +11,13 @@
             "ingredient_type": "modifier"
         },
         {
-            "ingredient_name": "Passionfruit Juice",
+            "ingredient_name": "Prosecco",
             "ingredient_id": 3,
             "ingredient_type": "modifier"
         },
         {
-            "ingredient_name": "Prosecco",
-            "ingredient_id": 4,
-            "ingredient_type": "modifier"
-        },
-        {
             "ingredient_name": "Lime Juice",
-            "ingredient_id": 5,
+            "ingredient_id": 4,
             "ingredient_type": "mixer"
         }
     ]

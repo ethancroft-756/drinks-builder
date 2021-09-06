@@ -4,11 +4,6 @@
             "cocktail_name": "Pornstar Martini",
             "cocktail_id": 1,
             "cocktail_ingredient_ids": [1, 2, 3, 4]
-        },
-        {
-            "cocktail_name": "Test",
-            "cocktail_id": 2,
-            "cocktail_ingredient_ids": [1, 2, 3, 4, 5]
         }
     ]
 }

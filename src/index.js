@@ -4,16 +4,14 @@ import RenderIngredients from "./components/RenderIngredients";
 import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
-import SelectedIngredientsList from "./components/SelectedIngredientsList";
-import Input from "./components/Input";
 import SearchForm from "./components/SearchForm";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [matchingCocktails, setMatchingCocktails] = useState([]);
-    const [] = useState();
 
     const handleSelectedIngredients = (ingredientId) => {
+        console.log(ingredientId);
         const ingredientIndex = ingredients.ingredients.findIndex(
             (ingredient) => ingredient.ingredient_id === ingredientId
         );
@@ -66,22 +64,26 @@ const App = () => {
         <div className="content">
             <h1>Cocktails</h1>
 
-            <SearchForm ingredients={ingredients}></SearchForm>
+            <SearchForm
+                selectedIngs={handleSelectedIngredients}
+                ingredients={ingredients}
+            ></SearchForm>
 
-            {/* <RenderIngredients
-                ingredients={mixerIngredients}
+            <h2>Selected ingredients:</h2>
+
+            <RenderIngredients
+                ingredients={selectedIngredients}
                 onClick={handleSelectedIngredients}
                 className="ingredients__item"
-                /> */}
+            />
 
-            <div className="col-2">
-                Selected ingredients:
-                <SelectedIngredientsList
-                    ingredients={selectedIngredients}
-                ></SelectedIngredientsList>
-            </div>
+            {matchingCocktails.length !== 0 && (
+                <React.Fragment>
+                    <p>Results:</p>
 
-            <RenderCocktails matchedCocktails={matchingCocktails} />
+                    <RenderCocktails matchedCocktails={matchingCocktails} />
+                </React.Fragment>
+            )}
         </div>
     );
 };

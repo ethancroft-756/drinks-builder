@@ -32,6 +32,7 @@ const SelectTile = (props) => {
             onMouseMove={createBackgroundEffect}
             ref={selectTileRef}
             style={{ background: `${selectTileBackground}` }}
+            type={props.type}
         >
             {props.label}
         </button>

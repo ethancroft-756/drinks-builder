@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
+import SelectTile from "./SelectTile";
 
 const SearchForm = (props) => {
     const [enteredQuery, setEnteredQuery] = useState("");
@@ -38,7 +39,14 @@ const SearchForm = (props) => {
                     matchingIngs.map((item) => {
                         return (
                             <li key={item.ingredient_id}>
-                                <button>{item.ingredient_name}</button>
+                                <SelectTile
+                                    label={item.ingredient_name}
+                                    type="button"
+                                    onClick={props.selectedIngs.bind(
+                                        null,
+                                        item.ingredient_id
+                                    )}
+                                ></SelectTile>
                             </li>
                         );
                     })}

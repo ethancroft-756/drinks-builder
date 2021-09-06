@@ -69,13 +69,17 @@ const App = () => {
                 ingredients={ingredients}
             ></SearchForm>
 
-            <h2>Selected ingredients:</h2>
+            {selectedIngredients.length !== 0 && (
+                <React.Fragment>
+                    <p>Selected ingredients:</p>
 
-            <RenderIngredients
-                ingredients={selectedIngredients}
-                onClick={handleSelectedIngredients}
-                className="ingredients__item"
-            />
+                    <RenderIngredients
+                        ingredients={selectedIngredients}
+                        onClick={handleSelectedIngredients}
+                        className="ingredients__item"
+                    />
+                </React.Fragment>
+            )}
 
             {matchingCocktails.length !== 0 && (
                 <React.Fragment>

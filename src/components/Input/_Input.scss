@@ -55,3 +55,30 @@
         color: #757575;
     }
 }
+
+.dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+
+    &__button {
+        background-color: transparent;
+        box-sizing: content-box;
+        border-width: 0px 0px 2px;
+        border-top-style: initial;
+        border-right-style: initial;
+        border-left-style: initial;
+        border-color: initial;
+        border-image: initial;
+        text-align: left;
+        font-size: 1.8em;
+        line-height: 2em;
+        font-family: Manrope, sans-serif;
+        height: 35px;
+        padding: $space ($space * 2);
+        width: 300px;
+        margin: 0px;
+        cursor: pointer;
+    }
+}

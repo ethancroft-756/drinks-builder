@@ -32,7 +32,7 @@ const SearchForm = (props) => {
                     value: enteredQuery,
                 }}
             ></Input>
-            <ul>
+            <ul className="dropdown">
                 {matchingIngs &&
                     matchingIngs.length !== 0 &&
                     matchingIngs.map((item) => {
@@ -41,6 +41,7 @@ const SearchForm = (props) => {
                                 <SelectTile
                                     label={item.ingredient_name}
                                     type="button"
+                                    className="dropdown__button"
                                     onClick={props.selectedIngs.bind(
                                         null,
                                         item.ingredient_id

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Input from "./Input";
+import Input from "../components/Input/Input";
 import SelectTile from "./SelectTile";
 
 const SearchForm = (props) => {

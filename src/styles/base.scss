@@ -1,10 +1,11 @@
-// /* Variables */
+/* Variables */
 
-// $space: 16px;
+$space: 10px;
 // $green: #43c6ac;
 // $yellow: #ffd16f;
-// $font: 'Bebas Neue', cursive;
+$black: #000;
 
-// @import './body';
+@import "../components/Input/Input";
+@import "../components/Content/Content";
 // @import './content';
 // @import './modal';

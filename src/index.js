@@ -5,6 +5,7 @@ import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
 import SearchForm from "./components/SearchForm";
+import Heading from "./components/Heading/Heading";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -62,7 +63,7 @@ const App = () => {
 
     return (
         <div className="content">
-            <h1>Cocktails</h1>
+            <Heading>Cocktails</Heading>
 
             <SearchForm
                 selectedIngs={handleSelectedIngredients}

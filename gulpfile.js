@@ -7,7 +7,7 @@ const autoprefixer = require("autoprefixer");
 const { series, src, watch } = require("gulp");
 
 const scss = () => {
-    return src(["!_.scss", "src/styles/" + "**/*.scss"])
+    return src(["!_.scss", "src/styles/base.scss"])
         .pipe(sass())
         .pipe(postcss([autoprefixer]))
         .pipe(cssmin())
@@ -16,7 +16,7 @@ const scss = () => {
 
 const watchAll = () => {
     return watch(
-        ["src/styles/**/*.scss", "src/styles/**/*.css"],
+        ["src/components/**/*.scss", "src/styles/*.scss"],
         series(build)
     );
 };

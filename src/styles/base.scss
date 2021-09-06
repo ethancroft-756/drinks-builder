@@ -1,11 +1,20 @@
 /* Variables */
 
+$font: "Manrope", sans-serif;
+$light: 300px;
+$regular: 400px;
+$semi-bold: 600px;
+$bold: 700px;
+
 $space: 10px;
-// $green: #43c6ac;
-// $yellow: #ffd16f;
 $black: #000;
 
-@import "../components/Input/Input";
+body {
+    font-size: $space;
+    font-family: $font;
+    margin: 0;
+}
+
 @import "../components/Content/Content";
-// @import './content';
-// @import './modal';
+@import "../components/Heading/Heading";
+@import "../components/Input/Input";

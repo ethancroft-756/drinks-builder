@@ -26,7 +26,6 @@ const SearchForm = (props) => {
         <form>
             <Input
                 input={{
-                    className: "input",
                     placeholder: "Enter an ingredient",
                     onChange: inputHandler,
                     onKeyDown: inputHandler,

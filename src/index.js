@@ -12,7 +12,6 @@ const App = () => {
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
     const handleSelectedIngredients = (ingredientId) => {
-        console.log(ingredientId);
         const ingredientIndex = ingredients.ingredients.findIndex(
             (ingredient) => ingredient.ingredient_id === ingredientId
         );

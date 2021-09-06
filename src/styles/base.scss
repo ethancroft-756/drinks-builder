@@ -7,12 +7,13 @@ $semi-bold: 600px;
 $bold: 700px;
 
 $space: 10px;
-$black: #000;
+$black: #303030;
 
 body {
     font-size: $space;
     font-family: $font;
     margin: 0;
+    padding: $space * 2;
 }
 
 @import "../components/Content/Content";

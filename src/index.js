@@ -75,30 +75,32 @@ const App = () => {
         <div className="content">
             <Heading>Cocktails</Heading>
 
-            <SearchForm
-                selectedIngs={handleSelectedIngredients}
-                ingredients={notSelectedIngredients}
-            ></SearchForm>
+            <div>
+                <SearchForm
+                    selectedIngs={handleSelectedIngredients}
+                    ingredients={notSelectedIngredients}
+                ></SearchForm>
 
-            {selectedIngredients.length !== 0 && (
-                <React.Fragment>
-                    <p>Selected ingredients:</p>
+                {selectedIngredients.length !== 0 && (
+                    <div>
+                        <p>Selected ingredients:</p>
 
-                    <RenderSelectedIngredients
-                        ingredients={selectedIngredients}
-                        onClick={handleSelectedIngredients}
-                        className="ingredients__item"
-                    />
-                </React.Fragment>
-            )}
+                        <RenderSelectedIngredients
+                            ingredients={selectedIngredients}
+                            onClick={handleSelectedIngredients}
+                            className="ingredients__item"
+                        />
+                    </div>
+                )}
 
-            {matchingCocktails.length !== 0 && (
-                <React.Fragment>
-                    <p>Results:</p>
+                {matchingCocktails.length !== 0 && (
+                    <React.Fragment>
+                        <p>Results:</p>
 
-                    <RenderCocktails matchedCocktails={matchingCocktails} />
-                </React.Fragment>
-            )}
+                        <RenderCocktails matchedCocktails={matchingCocktails} />
+                    </React.Fragment>
+                )}
+            </div>
         </div>
     );
 };

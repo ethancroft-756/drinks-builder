@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import RenderIngredients from "./components/RenderIngredients";
+import RenderSelectedIngredients from "./components/RenderSelectedIngredients";
 import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
@@ -37,20 +37,16 @@ const App = () => {
                 return filteredIngs;
             });
         } else {
-            setSelectedIngredients((prevState) => {
-                const prevSelectedIngredientIndex = prevState.findIndex(
-                    (ingredient) => ingredient.ingredient_id === ingredientId
-                );
-
-                const updatedIngredients = prevState.filter(
-                    (item, index) => index !== prevSelectedIngredientIndex
-                );
-
-                return updatedIngredients;
-            });
-
             setNotSelectedIngredients((prevState) => {
                 return [...prevState, ingredient];
+            });
+
+            setSelectedIngredients((prevState) => {
+                const filteredIngs = prevState.filter((ingredient) => {
+                    return ingredient.ingredient_id !== ingredientId;
+                });
+
+                return filteredIngs;
             });
         }
     };
@@ -88,7 +84,7 @@ const App = () => {
                 <React.Fragment>
                     <p>Selected ingredients:</p>
 
-                    <RenderIngredients
+                    <RenderSelectedIngredients
                         ingredients={selectedIngredients}
                         onClick={handleSelectedIngredients}
                         className="ingredients__item"

@@ -99,13 +99,6 @@
             width: 0%;
         }
 
-        &:focus-within {
-            &::after {
-                background-color: #ff81d5;
-                width: 100%;
-            }
-        }
-
         &:hover {
             &::after {
                 width: 100%;

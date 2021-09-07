@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Input from "../components/Input/Input";
-import SelectTile from "./SelectTile";
 
 const SearchForm = (props) => {
     const [enteredQuery, setEnteredQuery] = useState("");
@@ -8,6 +7,10 @@ const SearchForm = (props) => {
 
     const inputHandler = (event) => {
         setEnteredQuery(event.target.value.toLowerCase());
+    };
+
+    const buttonHandler = (event, ingredientId) => {
+        props.selectedIngs(ingredientId);
     };
 
     useEffect(() => {
@@ -41,10 +44,9 @@ const SearchForm = (props) => {
                                 <button
                                     type="button"
                                     className="dropdown__button"
-                                    onClick={props.selectedIngs.bind(
-                                        null,
-                                        item.ingredient_id
-                                    )}
+                                    onClick={(event) =>
+                                        buttonHandler(event, item.ingredient_id)
+                                    }
                                 >
                                     {item.ingredient_name}
                                 </button>

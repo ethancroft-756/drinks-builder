@@ -1,5 +1,5 @@
 import React from "react";
-import SelectTile from "./SelectTile";
+import SelectTile from "./SelectTile/SelectTile";
 
 const RenderSelectedIngredients = (props) => {
     return (

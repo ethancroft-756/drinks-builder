@@ -25,7 +25,7 @@ const SelectTile = (props) => {
 
     return (
         <button
-            className={props.className}
+            className={`select-tile ${props.className}`}
             id={props.id}
             onClick={props.onClick}
             onMouseLeave={removeBackgroundEffect}

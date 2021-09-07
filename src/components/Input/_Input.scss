@@ -25,6 +25,7 @@
             position: absolute;
             bottom: 0;
             transition: width 0.25s linear;
+            left: 0;
         }
 
         &::before {
@@ -65,12 +66,6 @@
     &__button {
         background-color: transparent;
         box-sizing: content-box;
-        border-width: 0px 0px 2px;
-        border-top-style: initial;
-        border-right-style: initial;
-        border-left-style: initial;
-        border-color: initial;
-        border-image: initial;
         text-align: left;
         font-size: 1.8em;
         line-height: 2em;
@@ -78,7 +73,43 @@
         height: 35px;
         padding: $space ($space * 2);
         width: 300px;
-        margin: 0px;
+        margin: 0;
         cursor: pointer;
+        border: 0;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            height: 2px;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: width 0.25s linear;
+        }
+
+        &::before {
+            background-color: $black;
+            width: 100%;
+        }
+
+        &::after {
+            background-color: #ff81d5;
+            width: 0%;
+        }
+
+        &:focus-within {
+            &::after {
+                background-color: #ff81d5;
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
     }
 }

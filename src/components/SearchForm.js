@@ -38,15 +38,16 @@ const SearchForm = (props) => {
                     matchingIngs.map((item) => {
                         return (
                             <li key={item.ingredient_id}>
-                                <SelectTile
-                                    label={item.ingredient_name}
+                                <button
                                     type="button"
                                     className="dropdown__button"
                                     onClick={props.selectedIngs.bind(
                                         null,
                                         item.ingredient_id
                                     )}
-                                ></SelectTile>
+                                >
+                                    {item.ingredient_name}
+                                </button>
                             </li>
                         );
                     })}

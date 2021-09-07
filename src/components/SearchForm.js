@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Input from "../components/Input/Input";
 
 const SearchForm = (props) => {
@@ -17,13 +17,13 @@ const SearchForm = (props) => {
         let matchedItems = [];
 
         if (!(enteredQuery === "" || enteredQuery === " ")) {
-            matchedItems = props.ingredients.ingredients.filter((ingredient) =>
+            matchedItems = props.ingredients.filter((ingredient) =>
                 ingredient.ingredient_name.toLowerCase().includes(enteredQuery)
             );
         }
 
         setMatchingIngs(matchedItems);
-    }, [enteredQuery]);
+    }, [enteredQuery, props.ingredients]);
 
     return (
         <form>

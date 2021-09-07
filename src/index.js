@@ -9,6 +9,9 @@ import Heading from "./components/Heading/Heading";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
+    const [notSelectedIngredients, setNotSelectedIngredients] = useState(
+        ingredients.ingredients
+    );
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
     const handleSelectedIngredients = (ingredientId) => {
@@ -25,6 +28,14 @@ const App = () => {
             setSelectedIngredients((prevState) => {
                 return [...prevState, ingredient];
             });
+
+            setNotSelectedIngredients((prevState) => {
+                const filteredIngs = prevState.filter((ingredient) => {
+                    return ingredient.ingredient_id !== ingredientId;
+                });
+
+                return filteredIngs;
+            });
         } else {
             setSelectedIngredients((prevState) => {
                 const prevSelectedIngredientIndex = prevState.findIndex(
@@ -36,6 +47,10 @@ const App = () => {
                 );
 
                 return updatedIngredients;
+            });
+
+            setNotSelectedIngredients((prevState) => {
+                return [...prevState, ingredient];
             });
         }
     };
@@ -66,7 +81,7 @@ const App = () => {
 
             <SearchForm
                 selectedIngs={handleSelectedIngredients}
-                ingredients={ingredients}
+                ingredients={notSelectedIngredients}
             ></SearchForm>
 
             {selectedIngredients.length !== 0 && (

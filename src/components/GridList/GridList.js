@@ -1,11 +1,11 @@
 import React from "react";
-import SelectTile from "./SelectTile/SelectTile";
+import SelectTile from "../SelectTile/SelectTile";
 
-const RenderSelectedIngredients = (props) => {
+const GridList = (props) => {
     return (
-        <ul>
+        <ul className="grid-list">
             {props.ingredients.map((ingredient) => (
-                <li>
+                <li className="grid-list__item">
                     <SelectTile
                         id={ingredient.ingredient_id}
                         label={ingredient.ingredient_name}
@@ -22,4 +22,4 @@ const RenderSelectedIngredients = (props) => {
     );
 };
 
-export default RenderSelectedIngredients;
+export default GridList;

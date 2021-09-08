@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import RenderSelectedIngredients from "./components/RenderSelectedIngredients";
+import GridList from "./components/GridList/GridList";
 import RenderCocktails from "./components/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
-import SearchForm from "./components/SearchForm";
+import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
+import Subheading from "./components/Subheading/Subheading";
+import Columns from "./components/Columns/Columns";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -74,33 +76,33 @@ const App = () => {
     return (
         <div className="content">
             <Heading>Cocktails</Heading>
+            <Subheading>
+                A tool to quickly and simply find a cocktail to make with the
+                ingredients you have.
+            </Subheading>
 
-            <div>
+            <div style={{ display: "flex" }}>
                 <SearchForm
                     selectedIngs={handleSelectedIngredients}
                     ingredients={notSelectedIngredients}
                 ></SearchForm>
 
                 {selectedIngredients.length !== 0 && (
-                    <div>
-                        <p>Selected ingredients:</p>
-
-                        <RenderSelectedIngredients
-                            ingredients={selectedIngredients}
-                            onClick={handleSelectedIngredients}
-                            className="ingredients__item"
-                        />
-                    </div>
-                )}
-
-                {matchingCocktails.length !== 0 && (
-                    <React.Fragment>
-                        <p>Results:</p>
-
-                        <RenderCocktails matchedCocktails={matchingCocktails} />
-                    </React.Fragment>
+                    <GridList
+                        ingredients={selectedIngredients}
+                        onClick={handleSelectedIngredients}
+                        className="ingredients__item"
+                    />
                 )}
             </div>
+
+            {matchingCocktails.length !== 0 && (
+                <div>
+                    <p>Results:</p>
+
+                    <RenderCocktails matchedCocktails={matchingCocktails} />
+                </div>
+            )}
         </div>
     );
 };

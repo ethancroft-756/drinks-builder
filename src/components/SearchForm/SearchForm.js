@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Input from "../components/Input/Input";
+import Input from "../Input/Input";
 
 const SearchForm = (props) => {
     const [enteredQuery, setEnteredQuery] = useState("");
@@ -26,7 +26,7 @@ const SearchForm = (props) => {
     }, [enteredQuery, props.ingredients]);
 
     return (
-        <form>
+        <form className="search-form">
             <Input
                 input={{
                     placeholder: "Enter an ingredient",

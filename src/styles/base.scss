@@ -9,6 +9,8 @@ $bold: 700;
 $space: 10px;
 $black: #303030;
 $grey: #757575;
+$pink: #ff81d5;
+$dark-pink: #f966c8;
 
 body {
     font-size: $space;
@@ -25,3 +27,4 @@ body {
 @import "../components/SearchForm/SearchForm";
 @import "../components/SelectTile/SelectTile";
 @import "../components/Subheading/Subheading";
+@import "../components/ToggleButton/ToggleButton";

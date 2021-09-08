@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
+import { FaMinusCircle } from "react-icons/fa";
 
 const SelectTile = (props) => {
     const selectTileRef = useRef();
@@ -27,7 +28,6 @@ const SelectTile = (props) => {
         <button
             className={`select-tile ${props.className}`}
             id={props.id}
-            onClick={props.onClick}
             onMouseLeave={removeBackgroundEffect}
             onMouseMove={createBackgroundEffect}
             ref={selectTileRef}
@@ -35,6 +35,7 @@ const SelectTile = (props) => {
             type={props.type}
         >
             {props.label}
+            <FaMinusCircle className="" onClick={props.onClick}></FaMinusCircle>
         </button>
     );
 };

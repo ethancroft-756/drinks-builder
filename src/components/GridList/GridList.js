@@ -1,12 +1,12 @@
 import React from "react";
-import SelectTile from "../SelectTile/SelectTile";
+import ToggleButton from "../ToggleButton/ToggleButton";
 
 const GridList = (props) => {
     return (
         <ul className="grid-list">
             {props.ingredients.map((ingredient) => (
                 <li className="grid-list__item">
-                    <SelectTile
+                    <ToggleButton
                         id={ingredient.ingredient_id}
                         label={ingredient.ingredient_name}
                         onClick={props.onClick.bind(

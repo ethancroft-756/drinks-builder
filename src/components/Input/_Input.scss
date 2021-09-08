@@ -35,13 +35,13 @@
         }
 
         &::after {
-            background-color: #ff81d5;
+            background-color: $pink;
             width: 0%;
         }
 
         &:focus-within {
             &::after {
-                background-color: #ff81d5;
+                background-color: $pink;
                 width: 100%;
             }
         }
@@ -96,7 +96,7 @@
         }
 
         &::after {
-            background-color: #ff81d5;
+            background-color: $pink;
             width: 0%;
         }
 

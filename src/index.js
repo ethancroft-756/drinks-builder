@@ -61,14 +61,14 @@ const App = () => {
             ingredientIds.push(ingredient.ingredient_id);
         });
 
-        ingredientIds.sort();
-
         cocktails.cocktails.forEach((cocktail) => {
             cocktail.cocktail_ingredient_ids
                 .sort()
                 .every((id, index) => id === ingredientIds[index]) &&
                 matchedCocktails.push(cocktail);
         });
+
+        console.log(matchedCocktails);
 
         setMatchingCocktails(matchedCocktails);
     }, [selectedIngredients]);

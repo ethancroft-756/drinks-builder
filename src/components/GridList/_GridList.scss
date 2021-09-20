@@ -1,6 +1,5 @@
 .grid-list {
     display: grid;
-    height: 100%;
     margin: 0;
     margin-left: 0;
     padding: 0;
@@ -16,9 +15,5 @@
     @include breakpoint(medium) {
         max-height: 228px;
         margin-left: $space * 4;
-    }
-
-    &__item {
-        height: 100%;
     }
 }

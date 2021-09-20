@@ -1,24 +1,268 @@
 {
     "ingredients": [
         {
-            "ingredient_name": "Vanilla Vodka",
-            "ingredient_id": 1,
-            "ingredient_type": "base"
+            "ingredient_name": "Almond Syrup",
+            "ingredient_id": 1
         },
         {
-            "ingredient_name": "Passionfruit Liquor",
-            "ingredient_id": 2,
-            "ingredient_type": "modifier"
+            "ingredient_name": "Amaretto",
+            "ingredient_id": 2
         },
         {
-            "ingredient_name": "Prosecco",
-            "ingredient_id": 3,
-            "ingredient_type": "modifier"
+            "ingredient_name": "Angostura Bitter",
+            "ingredient_id": 3
+        },
+        {
+            "ingredient_name": "Angostura Bitters",
+            "ingredient_id": 4
+        },
+        {
+            "ingredient_name": "Apple Juice",
+            "ingredient_id": 5
+        },
+        {
+            "ingredient_name": "Bitters",
+            "ingredient_id": 6
+        },
+        {
+            "ingredient_name": "Bourbon Sugar",
+            "ingredient_id": 7
+        },
+        {
+            "ingredient_name": "Bourbon Whiskey",
+            "ingredient_id": 8
+        },
+        {
+            "ingredient_name": "Campari",
+            "ingredient_id": 9
+        },
+        {
+            "ingredient_name": "Coconut Cream",
+            "ingredient_id": 10
+        },
+        {
+            "ingredient_name": "Coffee Liquor",
+            "ingredient_id": 11
+        },
+        {
+            "ingredient_name": "Coke",
+            "ingredient_id": 12
+        },
+        {
+            "ingredient_name": "Cranberry Juice",
+            "ingredient_id": 13
+        },
+        {
+            "ingredient_name": "Cream",
+            "ingredient_id": 14
+        },
+        {
+            "ingredient_name": "Dark Rum",
+            "ingredient_id": 15
+        },
+        {
+            "ingredient_name": "Elderflower Cordial",
+            "ingredient_id": 16
+        },
+        {
+            "ingredient_name": "Espresso",
+            "ingredient_id": 17
+        },
+        {
+            "ingredient_name": "Fresh Limes",
+            "ingredient_id": 18
+        },
+        {
+            "ingredient_name": "Fresh Mint",
+            "ingredient_id": 19
+        },
+        {
+            "ingredient_name": "Gin",
+            "ingredient_id": 20
+        },
+        {
+            "ingredient_name": "Ginger Beer",
+            "ingredient_id": 21
+        },
+        {
+            "ingredient_name": "Grenadine",
+            "ingredient_id": 22
+        },
+        {
+            "ingredient_name": "Kraken",
+            "ingredient_id": 23
+        },
+        {
+            "ingredient_name": "Lemon Juice",
+            "ingredient_id": 24
+        },
+        {
+            "ingredient_name": "Lemonade",
+            "ingredient_id": 25
+        },
+        {
+            "ingredient_name": "Lime Cordial",
+            "ingredient_id": 26
         },
         {
             "ingredient_name": "Lime Juice",
-            "ingredient_id": 4,
-            "ingredient_type": "mixer"
+            "ingredient_id": 27
+        },
+        {
+            "ingredient_name": "Maraschino Cherry",
+            "ingredient_id": 28
+        },
+        {
+            "ingredient_name": "Melon Liquor",
+            "ingredient_id": 29
+        },
+        {
+            "ingredient_name": "Mint",
+            "ingredient_id": 30
+        },
+        {
+            "ingredient_name": "Mint Leaves",
+            "ingredient_id": 31
+        },
+        {
+            "ingredient_name": "Orange Curaçao",
+            "ingredient_id": 32
+        },
+        {
+            "ingredient_name": "Orange Juice",
+            "ingredient_id": 33
+        },
+        {
+            "ingredient_name": "Orange Peel",
+            "ingredient_id": 34
+        },
+        {
+            "ingredient_name": "Passionfruit Juice",
+            "ingredient_id": 35
+        },
+        {
+            "ingredient_name": "Passionfruit Liquor",
+            "ingredient_id": 36
+        },
+        {
+            "ingredient_name": "Passionfruit Syrup",
+            "ingredient_id": 37
+        },
+        {
+            "ingredient_name": "Peach Schnapps",
+            "ingredient_id": 38
+        },
+        {
+            "ingredient_name": "Pepper",
+            "ingredient_id": 39
+        },
+        {
+            "ingredient_name": "Pineapple Juice",
+            "ingredient_id": 40
+        },
+        {
+            "ingredient_name": "Pink Gin",
+            "ingredient_id": 41
+        },
+        {
+            "ingredient_name": "Powdered Sugar",
+            "ingredient_id": 42
+        },
+        {
+            "ingredient_name": "Prosecco",
+            "ingredient_id": 43
+        },
+        {
+            "ingredient_name": "Raspberry Liquor",
+            "ingredient_id": 44
+        },
+        {
+            "ingredient_name": "Raspberry Puree",
+            "ingredient_id": 45
+        },
+        {
+            "ingredient_name": "Rum",
+            "ingredient_id": 46
+        },
+        {
+            "ingredient_name": "Sailor J",
+            "ingredient_id": 47
+        },
+        {
+            "ingredient_name": "Salt",
+            "ingredient_id": 48
+        },
+        {
+            "ingredient_name": "Soda",
+            "ingredient_id": 49
+        },
+        {
+            "ingredient_name": "Spiced Rum",
+            "ingredient_id": 50
+        },
+        {
+            "ingredient_name": "Strawberry Puree",
+            "ingredient_id": 51
+        },
+        {
+            "ingredient_name": "Sugar Syrup",
+            "ingredient_id": 52
+        },
+        {
+            "ingredient_name": "Sweet Red Vermouth",
+            "ingredient_id": 53
+        },
+        {
+            "ingredient_name": "Tabasco",
+            "ingredient_id": 54
+        },
+        {
+            "ingredient_name": "Tequila",
+            "ingredient_id": 55
+        },
+        {
+            "ingredient_name": "Tomato Juice",
+            "ingredient_id": 56
+        },
+        {
+            "ingredient_name": "Triple Sec",
+            "ingredient_id": 57
+        },
+        {
+            "ingredient_name": "Vanilla Syrup",
+            "ingredient_id": 58
+        },
+        {
+            "ingredient_name": "Vanilla Vodka",
+            "ingredient_id": 59
+        },
+        {
+            "ingredient_name": "Vodka",
+            "ingredient_id": 60
+        },
+        {
+            "ingredient_name": "Water",
+            "ingredient_id": 61
+        },
+        {
+            "ingredient_name": "Whiskey",
+            "ingredient_id": 62
+        },
+        {
+            "ingredient_name": "White Rum",
+            "ingredient_id": 63
+        },
+        {
+            "ingredient_name": "White Whiskey",
+            "ingredient_id": 64
+        },
+        {
+            "ingredient_name": "Worcestershire Sauce",
+            "ingredient_id": 65
+        },
+        {
+            "ingredient_name": "Zubrowka Vodka",
+            "ingredient_id": 6
         }
     ]
 }

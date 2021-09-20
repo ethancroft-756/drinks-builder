@@ -2,6 +2,20 @@
     color: $black;
     margin: 0;
     margin-bottom: $space;
-    font-size: 4rem;
+    font-size: 2rem;
     text-align: center;
+
+    @include breakpoint(medium) {
+        font-size: 4rem;
+    }
+
+    &__sup {
+        font-size: 16px;
+        transform: rotateZ(10deg);
+        display: inline-block;
+
+        @include breakpoint(medium) {
+            font-size: 1.2em;
+        }
+    }
 }

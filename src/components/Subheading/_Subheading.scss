@@ -2,7 +2,15 @@
     color: $black;
     margin: 0;
     margin-bottom: $space * 3;
-    font-size: 2em;
+    font-size: 1.6em;
     font-weight: $regular;
     text-align: center;
+
+    @include breakpoint(medium) {
+        font-size: 2em;
+    }
+
+    &--semi-bold {
+        font-weight: $semi-bold;
+    }
 }

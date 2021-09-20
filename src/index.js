@@ -8,6 +8,7 @@ import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
 import Subheading from "./components/Subheading/Subheading";
 import Columns from "./components/Columns/Columns";
+import ContentBlock from "./components/ContentBlock/ContentBlock";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -80,6 +81,8 @@ const App = () => {
                 <sup
                     style={{
                         fontSize: "16px",
+                        transform: "rotateZ(10deg)",
+                        display: "inline-block",
                     }}
                 >
                     Alpha!
@@ -90,7 +93,7 @@ const App = () => {
                 ingredients you have.
             </Subheading>
 
-            <div style={{ display: "flex" }}>
+            <ContentBlock className="content-block--with-flex">
                 <SearchForm
                     selectedIngs={handleSelectedIngredients}
                     ingredients={notSelectedIngredients}
@@ -103,14 +106,14 @@ const App = () => {
                         className="ingredients__item"
                     />
                 )}
-            </div>
+            </ContentBlock>
 
             {matchingCocktails.length !== 0 && (
-                <div>
-                    <Subheading>Results</Subheading>
+                <ContentBlock>
+                    <Subheading className="subheading--semi-bold">Results</Subheading>
 
                     <RenderCocktails matchedCocktails={matchingCocktails} />
-                </div>
+                </ContentBlock>
             )}
         </div>
     );

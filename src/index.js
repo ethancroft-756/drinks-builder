@@ -98,7 +98,7 @@ const App = () => {
 
             {matchingCocktails.length !== 0 && (
                 <div>
-                    <p>Results:</p>
+                    <Subheading>Results</Subheading>
 
                     <RenderCocktails matchedCocktails={matchingCocktails} />
                 </div>

@@ -13,7 +13,7 @@ const GridList = (props) => {
             }
             setListLength(props.ingredients.length);
         }
-    }, [props.ingredients]);
+    }, [props.ingredients, listLength]);
 
     return (
         <ul ref={gridListRef} className="grid-list">

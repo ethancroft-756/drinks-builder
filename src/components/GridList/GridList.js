@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ToggleButton from "../ToggleButton/ToggleButton";
 
 const GridList = (props) => {
+    const gridListRef = useRef();
+    const [listLength, setListLength] = useState(0);
+
+    useEffect(() => {
+        if (listLength !== props.ingredients.length) {
+            if (listLength < props.ingredients.length) {
+                gridListRef.current.scrollTop =
+                    gridListRef.current.scrollHeight;
+            }
+            setListLength(props.ingredients.length);
+        }
+    }, [props.ingredients]);
+
     return (
-        <ul className="grid-list">
+        <ul ref={gridListRef} className="grid-list">
             {props.ingredients.map((ingredient) => (
-                <li className="grid-list__item">
+                <li key={ingredient.ingredient_id} className="grid-list__item">
                     <ToggleButton
                         id={ingredient.ingredient_id}
                         label={ingredient.ingredient_name}

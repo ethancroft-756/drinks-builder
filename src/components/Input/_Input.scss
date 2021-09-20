@@ -1,0 +1,109 @@
+.input {
+    background-color: #f5f5f5;
+    border: 0;
+    font-size: 1.8em;
+    line-height: 2em;
+    font-family: $font;
+    height: 35px;
+    padding: $space ($space * 2);
+    width: 300px;
+    transition: background-color 0.25s ease-out;
+
+    &:focus,
+    &:active {
+        background-color: #f1f1f1;
+        outline: 0;
+    }
+
+    &__wrap {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            height: 2px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            transition: width 0.25s linear;
+            left: 0;
+        }
+
+        &::before {
+            background-color: $black;
+            width: 100%;
+        }
+
+        &::after {
+            background-color: $pink;
+            width: 0%;
+        }
+
+        &:focus-within {
+            &::after {
+                background-color: $pink;
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &::placeholder {
+        color: $grey;
+    }
+}
+
+.dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+
+    &__button {
+        background-color: transparent;
+        box-sizing: content-box;
+        text-align: left;
+        font-size: 1.8em;
+        line-height: 2em;
+        font-family: Manrope, sans-serif;
+        height: 35px;
+        padding: $space ($space * 2);
+        width: 300px;
+        margin: 0;
+        cursor: pointer;
+        border: 0;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            height: 2px;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: width 0.25s linear;
+        }
+
+        &::before {
+            background-color: $black;
+            width: 100%;
+        }
+
+        &::after {
+            background-color: $pink;
+            width: 0%;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

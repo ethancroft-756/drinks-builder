@@ -1,0 +1,30 @@
+/* Variables */
+
+$font: "Manrope", sans-serif;
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+
+$space: 10px;
+$black: #303030;
+$grey: #757575;
+$pink: #ff81d5;
+$dark-pink: #f966c8;
+
+body {
+    font-size: $space;
+    font-family: $font;
+    margin: 0;
+    padding: 4rem;
+}
+
+@import "../components/Columns/Columns";
+@import "../components/Content/Content";
+@import "../components/GridList/GridList";
+@import "../components/Heading/Heading";
+@import "../components/Input/Input";
+@import "../components/SearchForm/SearchForm";
+@import "../components/SelectTile/SelectTile";
+@import "../components/Subheading/Subheading";
+@import "../components/ToggleButton/ToggleButton";

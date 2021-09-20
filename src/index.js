@@ -61,6 +61,8 @@ const App = () => {
             ingredientIds.push(ingredient.ingredient_id);
         });
 
+        ingredientIds.sort();
+
         cocktails.cocktails.forEach((cocktail) => {
             cocktail.cocktail_ingredient_ids
                 .sort()
@@ -68,14 +70,21 @@ const App = () => {
                 matchedCocktails.push(cocktail);
         });
 
-        console.log(matchedCocktails);
-
         setMatchingCocktails(matchedCocktails);
     }, [selectedIngredients]);
 
     return (
         <div className="content">
-            <Heading>Cocktails</Heading>
+            <Heading>
+                Cocktails
+                <sup
+                    style={{
+                        fontSize: "16px",
+                    }}
+                >
+                    Alpha!
+                </sup>
+            </Heading>
             <Subheading>
                 A tool to quickly and simply find a cocktail to make with the
                 ingredients you have.

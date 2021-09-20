@@ -1,5 +1,6 @@
 {
   "name": "drinks-builder",
+  "homepage": "https://ethancroft-756.github.io/drinks-builder/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0"
   }

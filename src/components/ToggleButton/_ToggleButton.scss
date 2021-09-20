@@ -1,9 +1,11 @@
 .toggle-button {
+    background: $light-grey;
     border: none;
     padding: $space;
     width: 100%;
     border-radius: 8px;
     height: 45px;
+    font-family: $font;
     font-size: 16px;
     line-height: 24px;
     position: relative;

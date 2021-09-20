@@ -10,7 +10,7 @@ const ToggleButton = (props) => {
         setButtonScalingSetting(false);
         console.log(buttonScalingSetting);
         props.onClick(true);
-    }
+    };
 
     useEffect(() => {
         setButtonScalingSetting(true);
@@ -18,14 +18,16 @@ const ToggleButton = (props) => {
 
     return (
         <button
-            className={`toggle-button toggle-button${buttonScalingSetting ? "--scale-up" : "--scale-down"} ${props.className}`}
+            className={`toggle-button toggle-button${
+                buttonScalingSetting ? "--scale-up" : "--scale-down"
+            } ${props.className}`}
             id={props.id}
             type={props.type}
         >
-            {props.label}
             <span onClick={handleClicks} className="toggle-button__icon">
                 <FaMinusCircle></FaMinusCircle>
             </span>
+            <span className="toggle-button__label">{props.label}</span>
         </button>
     );
 };

@@ -7,7 +7,6 @@ import ingredients from "./data/ingredients";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
 import Subheading from "./components/Subheading/Subheading";
-import Columns from "./components/Columns/Columns";
 import ContentBlock from "./components/ContentBlock/ContentBlock";
 
 const App = () => {

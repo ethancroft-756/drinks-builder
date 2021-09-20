@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/drinks-builder/static/js/main.d7dcd415.chunk.js",
+    "main.js.map": "/drinks-builder/static/js/main.d7dcd415.chunk.js.map",
+    "runtime-main.js": "/drinks-builder/static/js/runtime-main.8a1e6a91.js",
+    "runtime-main.js.map": "/drinks-builder/static/js/runtime-main.8a1e6a91.js.map",
+    "static/js/2.9a4b27fa.chunk.js": "/drinks-builder/static/js/2.9a4b27fa.chunk.js",
+    "static/js/2.9a4b27fa.chunk.js.map": "/drinks-builder/static/js/2.9a4b27fa.chunk.js.map",
+    "index.html": "/drinks-builder/index.html",
+    "static/js/2.9a4b27fa.chunk.js.LICENSE.txt": "/drinks-builder/static/js/2.9a4b27fa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8a1e6a91.js",
+    "static/js/2.9a4b27fa.chunk.js",
+    "static/js/main.d7dcd415.chunk.js"
+  ]
+}

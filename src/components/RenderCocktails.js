@@ -1,17 +1,9 @@
 import React from "react";
-import CocktailShort from "./CocktailShort";
+import SimpleList from "./SimpleList/SimpleList";
 
 const RenderCocktails = (props) => {
     return (
-        <ul>
-            {props.matchedCocktails.map((cocktail, index) => {
-                return (
-                    <li key={index}>
-                        <CocktailShort name={cocktail.cocktail_name} />
-                    </li>
-                );
-            })}
-        </ul>
+        <SimpleList listItems={props.matchedCocktails}></SimpleList>
     );
 };
 

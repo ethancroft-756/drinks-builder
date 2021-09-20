@@ -9,6 +9,7 @@
     padding: 0 ($space * 2);
     width: 100%;
     transition: background-color 0.25s ease-out;
+    color: $black;
 
     &:focus,
     &:active {
@@ -73,6 +74,7 @@
     right: 0;
     z-index: 1;
     position: absolute;
+    color: $black;
 
     &__button {
         background-color: white;

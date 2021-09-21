@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import GridList from "./components/GridList/GridList";
-import RenderCocktails from "./components/RenderCocktails";
+import RenderCocktails from "./components/Misc/RenderCocktails";
 import cocktails from "./data/cocktails";
 import ingredients from "./data/ingredients";
 import SearchForm from "./components/SearchForm/SearchForm";
@@ -77,15 +77,7 @@ const App = () => {
         <div className="content">
             <Heading>
                 Cocktails
-                <sup
-                    style={{
-                        fontSize: "16px",
-                        transform: "rotateZ(10deg)",
-                        display: "inline-block",
-                    }}
-                >
-                    Alpha!
-                </sup>
+                <sup className="heading__sup">Alpha!</sup>
             </Heading>
             <Subheading>
                 A tool to quickly and simply find a cocktail to make with the
@@ -109,7 +101,9 @@ const App = () => {
 
             {matchingCocktails.length !== 0 && (
                 <ContentBlock>
-                    <Subheading className="subheading--semi-bold">Results</Subheading>
+                    <Subheading className="subheading--semi-bold">
+                        Results
+                    </Subheading>
 
                     <RenderCocktails matchedCocktails={matchingCocktails} />
                 </ContentBlock>

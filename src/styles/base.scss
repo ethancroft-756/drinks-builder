@@ -13,19 +13,8 @@ $grey: #757575;
 $pink: #ff81d5;
 $dark-pink: #f966c8;
 
+@import "./body";
 @import "./breakpoints";
-
-body {
-    font-size: $space;
-    font-family: $font;
-    margin: 0;
-    padding: 1rem 2rem;
-
-    @include breakpoint(medium) {
-        padding: 4rem;
-    }
-}
-
 @import "../components/ContentBlock/ContentBlock";
 @import "../components/Content/Content";
 @import "../components/GridList/GridList";

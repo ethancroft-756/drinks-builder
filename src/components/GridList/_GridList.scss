@@ -6,7 +6,7 @@
     color: $black;
     list-style-type: none;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
+    gap: 1rem;
     width: 100%;
     max-height: 205px;
     overflow-y: auto;
@@ -14,6 +14,6 @@
 
     @include breakpoint(medium) {
         max-height: 228px;
-        margin-left: $space * 4;
+        margin-left: 4rem;
     }
 }

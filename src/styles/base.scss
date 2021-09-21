@@ -19,8 +19,8 @@ $pink: #ff81d5;
 $dark-pink: #f966c8;
 
 /* Partials */
-@import "./body";
 @import "./breakpoints";
+@import "./body";
 @import "../components/ContentBlock/ContentBlock";
 @import "../components/Content/Content";
 @import "../components/GridList/GridList";

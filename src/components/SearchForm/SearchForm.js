@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Input from "../Input/Input";
+import Dropdown from "../Dropdown/Dropdown";
 
 const SearchForm = (props) => {
     const [enteredQuery, setEnteredQuery] = useState("");
@@ -9,7 +10,7 @@ const SearchForm = (props) => {
         setEnteredQuery(event.target.value.toLowerCase());
     };
 
-    const buttonHandler = (event, ingredientId) => {
+    const buttonHandler = (ingredientId) => {
         props.selectedIngs(ingredientId);
     };
 
@@ -35,25 +36,12 @@ const SearchForm = (props) => {
                     value: enteredQuery,
                 }}
             ></Input>
-            <ul className="dropdown">
-                {matchingIngs &&
-                    matchingIngs.length !== 0 &&
-                    matchingIngs.map((item) => {
-                        return (
-                            <li key={item.ingredient_id}>
-                                <button
-                                    type="button"
-                                    className="dropdown__button"
-                                    onClick={(event) =>
-                                        buttonHandler(event, item.ingredient_id)
-                                    }
-                                >
-                                    {item.ingredient_name}
-                                </button>
-                            </li>
-                        );
-                    })}
-            </ul>
+            {matchingIngs && matchingIngs.length !== 0 && (
+                <Dropdown
+                    onItemClick={buttonHandler}
+                    dropdownItems={matchingIngs}
+                ></Dropdown>
+            )}
         </form>
     );
 };

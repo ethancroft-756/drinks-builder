@@ -2,8 +2,8 @@ import React from "react";
 
 const SimpleListItem = (props) => {
     return (
-        <li key={props.key} class="simple-list__item">
-            {props.name}
+        <li key={props.itemId} className="simple-list__item">
+            {props.itemName}
         </li>
     );
 };

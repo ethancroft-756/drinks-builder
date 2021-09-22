@@ -8,7 +8,8 @@ const SimpleList = (props) => {
                 return (
                     <SimpleListItem
                         key={cocktail.cocktail_id}
-                        name={cocktail.cocktail_name}
+                        itemId={cocktail.cocktail_id}
+                        itemName={cocktail.cocktail_name}
                     ></SimpleListItem>
                 );
             })}

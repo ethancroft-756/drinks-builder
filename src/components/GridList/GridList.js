@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ToggleButton from "../ToggleButton/ToggleButton";
 
+/* Refactor to not use ingredients within component but as a prop */
 const GridList = (props) => {
     const gridListRef = useRef();
     const [listLength, setListLength] = useState(0);

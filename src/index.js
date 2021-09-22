@@ -24,47 +24,44 @@ const App = () => {
         });
     }, []);
 
-    const handleSelectedIngredients = (ingredientId) => {
+    const addSelectedIngredient = (ingredientId) => {
         let ingredientIndex = notSelectedIngredients.findIndex(
             (ingredient) => ingredient.ingredient_id === ingredientId
         );
 
-        if (ingredientIndex === -1) {
-            ingredientIndex = selectedIngredients.findIndex(
-                (ingredient) => ingredient.ingredient_id === ingredientId
-            );
-        }
-
         const ingredient = notSelectedIngredients[ingredientIndex];
-        if (
-            !selectedIngredients.find(
-                (ingredient) => ingredient.ingredient_id === ingredientId
-            )
-        ) {
-            setSelectedIngredients((prevState) => {
-                return [...prevState, ingredient];
+
+        setSelectedIngredients((prevState) => {
+            return [...prevState, ingredient];
+        });
+
+        setNotSelectedIngredients((prevState) => {
+            const filteredIngs = prevState.filter((ingredient) => {
+                return ingredient.ingredient_id !== ingredientId;
             });
 
-            setNotSelectedIngredients((prevState) => {
-                const filteredIngs = prevState.filter((ingredient) => {
-                    return ingredient.ingredient_id !== ingredientId;
-                });
+            return filteredIngs;
+        });
+    };
 
-                return filteredIngs;
-            });
-        } else {
-            setNotSelectedIngredients((prevState) => {
-                return [...prevState, ingredient];
+    const removeSelectedIngredient = (ingredientId) => {
+        let ingredientIndex = selectedIngredients.findIndex(
+            (ingredient) => ingredient.ingredient_id === ingredientId
+        );
+
+        const ingredient = selectedIngredients[ingredientIndex];
+
+        setNotSelectedIngredients((prevState) => {
+            return [...prevState, ingredient];
+        });
+
+        setSelectedIngredients((prevState) => {
+            const filteredIngs = prevState.filter((ingredient) => {
+                return ingredient.ingredient_id !== ingredientId;
             });
 
-            setSelectedIngredients((prevState) => {
-                const filteredIngs = prevState.filter((ingredient) => {
-                    return ingredient.ingredient_id !== ingredientId;
-                });
-
-                return filteredIngs;
-            });
-        }
+            return filteredIngs;
+        });
     };
 
     useEffect(() => {
@@ -100,14 +97,14 @@ const App = () => {
 
             <ContentBlock className="content-block--with-flex">
                 <SearchForm
-                    selectedIngs={handleSelectedIngredients}
+                    selectedIngs={addSelectedIngredient}
                     ingredients={notSelectedIngredients}
                 ></SearchForm>
 
                 {selectedIngredients.length !== 0 && (
                     <GridList
                         ingredients={selectedIngredients}
-                        onClick={handleSelectedIngredients}
+                        onClick={removeSelectedIngredient}
                         className="ingredients__item"
                     />
                 )}

@@ -8,20 +8,28 @@ import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
 import Subheading from "./components/Subheading/Subheading";
 import ContentBlock from "./components/ContentBlock/ContentBlock";
+import firebaseDatabase from "./firebase";
 
 const App = () => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
-    const [notSelectedIngredients, setNotSelectedIngredients] = useState(
-        ingredients.ingredients
-    );
+    const [notSelectedIngredients, setNotSelectedIngredients] = useState();
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
+    useEffect(() => {
+        const ingredientsFromDatabase = firebaseDatabase.ref('ingredients');
+
+        ingredientsFromDatabase.on('value', snapshot => {
+            const ingredients = snapshot.val();
+
+            setNotSelectedIngredients(ingredients);
+        });
+    }, [])
+
     const handleSelectedIngredients = (ingredientId) => {
-        const ingredientIndex = ingredients.ingredients.findIndex(
+        const ingredientIndex = notSelectedIngredients.findIndex(
             (ingredient) => ingredient.ingredient_id === ingredientId
         );
-        const ingredient = ingredients.ingredients[ingredientIndex];
-
+        const ingredient = notSelectedIngredients[ingredientIndex];
         if (
             !selectedIngredients.find(
                 (ingredient) => ingredient.ingredient_id === ingredientId

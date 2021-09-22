@@ -10,10 +10,6 @@ const SearchForm = (props) => {
         setEnteredQuery(event.target.value.toLowerCase());
     };
 
-    const buttonHandler = (ingredientId) => {
-        props.selectedIngs(ingredientId);
-    };
-
     useEffect(() => {
         let matchedItems = [];
 
@@ -38,7 +34,7 @@ const SearchForm = (props) => {
             ></Input>
             {matchingIngs && matchingIngs.length !== 0 && (
                 <Dropdown
-                    onItemClick={buttonHandler}
+                    onItemClick={props.selectedIngs}
                     dropdownItems={matchingIngs}
                 ></Dropdown>
             )}

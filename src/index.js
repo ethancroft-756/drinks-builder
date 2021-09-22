@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import GridList from "./components/GridList/GridList";
 import RenderCocktails from "./components/Misc/RenderCocktails";
 import cocktails from "./data/cocktails";
-import ingredients from "./data/ingredients";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
 import Subheading from "./components/Subheading/Subheading";
@@ -16,14 +15,14 @@ const App = () => {
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
     useEffect(() => {
-        const ingredientsFromDatabase = firebaseDatabase.ref('ingredients');
+        const ingredientsFromDatabase = firebaseDatabase.ref("ingredients");
 
-        ingredientsFromDatabase.on('value', snapshot => {
+        ingredientsFromDatabase.on("value", (snapshot) => {
             const ingredients = snapshot.val();
 
             setNotSelectedIngredients(ingredients);
         });
-    }, [])
+    }, []);
 
     const handleSelectedIngredients = (ingredientId) => {
         const ingredientIndex = notSelectedIngredients.findIndex(

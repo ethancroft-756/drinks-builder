@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/drinks-builder/static/js/main.d74c352c.chunk.js",
-    "main.js.map": "/drinks-builder/static/js/main.d74c352c.chunk.js.map",
+    "main.js": "/drinks-builder/static/js/main.72269338.chunk.js",
+    "main.js.map": "/drinks-builder/static/js/main.72269338.chunk.js.map",
     "runtime-main.js": "/drinks-builder/static/js/runtime-main.8a1e6a91.js",
     "runtime-main.js.map": "/drinks-builder/static/js/runtime-main.8a1e6a91.js.map",
-    "static/js/2.97fd870d.chunk.js": "/drinks-builder/static/js/2.97fd870d.chunk.js",
-    "static/js/2.97fd870d.chunk.js.map": "/drinks-builder/static/js/2.97fd870d.chunk.js.map",
+    "static/js/2.0a28b6d4.chunk.js": "/drinks-builder/static/js/2.0a28b6d4.chunk.js",
+    "static/js/2.0a28b6d4.chunk.js.map": "/drinks-builder/static/js/2.0a28b6d4.chunk.js.map",
     "index.html": "/drinks-builder/index.html",
-    "static/js/2.97fd870d.chunk.js.LICENSE.txt": "/drinks-builder/static/js/2.97fd870d.chunk.js.LICENSE.txt"
+    "static/js/2.0a28b6d4.chunk.js.LICENSE.txt": "/drinks-builder/static/js/2.0a28b6d4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a1e6a91.js",
-    "static/js/2.97fd870d.chunk.js",
-    "static/js/main.d74c352c.chunk.js"
+    "static/js/2.0a28b6d4.chunk.js",
+    "static/js/main.72269338.chunk.js"
   ]
 }

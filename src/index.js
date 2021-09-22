@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import GridList from "./components/GridList/GridList";
 import RenderCocktails from "./components/Misc/RenderCocktails";
-import cocktails from "./data/cocktails";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Heading from "./components/Heading/Heading";
 import Subheading from "./components/Subheading/Subheading";
@@ -10,17 +9,22 @@ import ContentBlock from "./components/ContentBlock/ContentBlock";
 import firebaseDatabase from "./firebase";
 
 const App = () => {
+    const [cocktails, setCocktails] = useState([]);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
-    const [notSelectedIngredients, setNotSelectedIngredients] = useState();
+    const [notSelectedIngredients, setNotSelectedIngredients] = useState([]);
     const [matchingCocktails, setMatchingCocktails] = useState([]);
 
     useEffect(() => {
-        const ingredientsFromDatabase = firebaseDatabase.ref("ingredients");
-
-        ingredientsFromDatabase.on("value", (snapshot) => {
+        firebaseDatabase.ref("ingredients").on("value", (snapshot) => {
             const ingredients = snapshot.val();
 
             setNotSelectedIngredients(ingredients);
+        });
+
+        firebaseDatabase.ref("cocktails").on("value", (snapshot) => {
+            const cocktails = snapshot.val();
+
+            setCocktails(cocktails);
         });
     }, []);
 
@@ -75,7 +79,7 @@ const App = () => {
 
         ingredientIds.sort();
 
-        cocktails.cocktails.forEach((cocktail) => {
+        cocktails.forEach((cocktail) => {
             cocktail.cocktail_ingredient_ids
                 .sort()
                 .every((id, index) => id === ingredientIds[index]) &&
@@ -83,7 +87,7 @@ const App = () => {
         });
 
         setMatchingCocktails(matchedCocktails);
-    }, [selectedIngredients]);
+    }, [selectedIngredients, cocktails]);
 
     return (
         <div className="content">

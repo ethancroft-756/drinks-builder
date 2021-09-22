@@ -25,9 +25,16 @@ const App = () => {
     }, []);
 
     const handleSelectedIngredients = (ingredientId) => {
-        const ingredientIndex = notSelectedIngredients.findIndex(
+        let ingredientIndex = notSelectedIngredients.findIndex(
             (ingredient) => ingredient.ingredient_id === ingredientId
         );
+
+        if (ingredientIndex === -1) {
+            ingredientIndex = selectedIngredients.findIndex(
+                (ingredient) => ingredient.ingredient_id === ingredientId
+            );
+        }
+
         const ingredient = notSelectedIngredients[ingredientIndex];
         if (
             !selectedIngredients.find(

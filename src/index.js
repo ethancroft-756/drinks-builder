@@ -24,12 +24,9 @@ const App = () => {
         });
     }, []);
 
-    const addSelectedIngredient = (ingredientId) => {
-        let ingredientIndex = notSelectedIngredients.findIndex(
-            (ingredient) => ingredient.ingredient_id === ingredientId
-        );
-
-        const ingredient = notSelectedIngredients[ingredientIndex];
+    // TODO: How can I consolidate these functions?
+    const manageAddedSelectedIngredient = (ingredientId) => {
+        const ingredient = getIngredient(notSelectedIngredients, ingredientId);
 
         setSelectedIngredients((prevState) => {
             return [...prevState, ingredient];
@@ -44,12 +41,8 @@ const App = () => {
         });
     };
 
-    const removeSelectedIngredient = (ingredientId) => {
-        let ingredientIndex = selectedIngredients.findIndex(
-            (ingredient) => ingredient.ingredient_id === ingredientId
-        );
-
-        const ingredient = selectedIngredients[ingredientIndex];
+    const manageRemovedSelectedIngredient = (ingredientId) => {
+        const ingredient = getIngredient(selectedIngredients, ingredientId);
 
         setNotSelectedIngredients((prevState) => {
             return [...prevState, ingredient];
@@ -62,6 +55,14 @@ const App = () => {
 
             return filteredIngs;
         });
+    };
+
+    const getIngredient = (queriedState, ingredientId) => {
+        let ingredientIndex = queriedState.findIndex(
+            (ingredient) => ingredient.ingredient_id === ingredientId
+        );
+
+        return queriedState[ingredientIndex];
     };
 
     useEffect(() => {
@@ -97,14 +98,14 @@ const App = () => {
 
             <ContentBlock className="content-block--with-flex">
                 <SearchForm
-                    selectedIngs={addSelectedIngredient}
+                    selectedIngs={manageAddedSelectedIngredient}
                     ingredients={notSelectedIngredients}
                 ></SearchForm>
 
                 {selectedIngredients.length !== 0 && (
                     <GridList
                         ingredients={selectedIngredients}
-                        onClick={removeSelectedIngredient}
+                        onClick={manageRemovedSelectedIngredient}
                         className="ingredients__item"
                     />
                 )}

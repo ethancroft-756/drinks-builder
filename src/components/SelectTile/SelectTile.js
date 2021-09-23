@@ -20,22 +20,25 @@ const SelectTile = (props) => {
         let percentTop = Math.floor((mouseDistanceFromTop / height) * 100);
 
         setSelectTileBackground(
-            `radial-gradient(ellipse at ${percentLeft}% ${percentTop}%, #ffda8b 5%, #f7c455 100%)`
+            `radial-gradient(circle at ${percentLeft}% ${percentTop}%, #ffda8b 5%, #f7c455 100%)`
         );
     };
 
     return (
         <button
-            className={`select-tile ${props.className}`}
-            id={props.id}
+            className={
+                props.className
+                    ? `select-tile ${props.className}`
+                    : `select-tile`
+            }
+            id={props.tileId}
             onMouseLeave={removeBackgroundEffect}
             onMouseMove={createBackgroundEffect}
             ref={selectTileRef}
             style={{ background: `${selectTileBackground}` }}
-            type={props.type}
+            type={props.tileType}
         >
-            {props.label}
-            <FaMinusCircle className="" onClick={props.onClick}></FaMinusCircle>
+            {props.tileLabel}
         </button>
     );
 };

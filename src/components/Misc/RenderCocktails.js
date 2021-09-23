@@ -1,8 +1,13 @@
 import React from "react";
-import SimpleList from "../SimpleList/SimpleList";
+import SelectTile from "../SelectTile/SelectTile";
 
 const RenderCocktails = (props) => {
-    return <SimpleList listItems={props.matchedCocktails}></SimpleList>;
+    return props.matchedCocktails.map((cocktail) => (
+        <SelectTile
+            tileId={cocktail.cocktail_id}
+            tileLabel={cocktail.cocktail_name}
+        ></SelectTile>
+    ));
 };
 
 export default RenderCocktails;

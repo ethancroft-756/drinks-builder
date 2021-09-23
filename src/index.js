@@ -70,20 +70,21 @@ const App = () => {
     };
 
     useEffect(() => {
-        const ingredientIds = [];
+        const selectedIngredientIds = [];
         const matchedCocktails = [];
 
         selectedIngredients.forEach((ingredient) => {
-            ingredientIds.push(ingredient.ingredient_id);
+            selectedIngredientIds.push(ingredient.ingredient_id);
         });
 
-        ingredientIds.sort();
+        selectedIngredientIds.sort();
 
         cocktails.forEach((cocktail) => {
             cocktail.cocktail_ingredient_ids
                 .sort()
-                .every((id, index) => id === ingredientIds[index]) &&
-                matchedCocktails.push(cocktail);
+                .every((cocktailIngId) =>
+                    selectedIngredientIds.includes(cocktailIngId)
+                ) && matchedCocktails.push(cocktail);
         });
 
         setMatchingCocktails(matchedCocktails);

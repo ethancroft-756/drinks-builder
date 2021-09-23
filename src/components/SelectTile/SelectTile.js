@@ -20,7 +20,7 @@ const SelectTile = (props) => {
         let percentTop = Math.floor((mouseDistanceFromTop / height) * 100);
 
         setSelectTileBackground(
-            `radial-gradient(circle at ${percentLeft}% ${percentTop}%, #ffda8b 5%, #f7c455 100%)`
+            `radial-gradient(circle at ${percentLeft}% ${percentTop}%, #f7d9ee 1%, #f8bae6 100%)`
         );
     };
 
